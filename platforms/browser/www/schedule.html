@@ -45,7 +45,7 @@
 
 <body>
 	
-	<div id="header">
+	<header>
 		<div id="menuBar">
 			<div id="menu" class="menu">
 				<a href="javascript:void(0);" onclick="myFunction()" class="menuBtn">&#9776;</br></a>
@@ -54,28 +54,22 @@
 				<a href="categories.html">Categories</a>
 				<a href="shows.html">Artists / Shows</a>
 				<a href="venues.html">Venues</a>
-				<a href="#" class="active">Schedule</a>
+				<a href="schedule.html" class="active">Schedule</a>
 				<a href="map.html">Map</a>
 				<a href="faq.html">FAQ</a>
 			</div>
 		</div>
 		
 		<div id="titleBar">
-			<span id="vrystaat">vrystaat</span>
-			</br><span id="subText">Kunstefees &#8226; Arts Festival</span>
+			<div id="logo"></div>
+			
+			<div id="logoWrapper">
+				<span id="vrystaat">vrystaat</span>
+				</br>
+				<span id="subText">Kunstefees &#8226; Arts Festival</span>
+			</div>
 		</div>
-	</div>
-	
-	<script>
-	function myFunction() {
-    var x = document.getElementById("menu");
-    if (x.className === "menu") {
-        x.className += " showMenu";
-    } else {
-        x.className = "menu";
-    }
-}
-	</script>
+	</header>
 </body>
 
 </html>
