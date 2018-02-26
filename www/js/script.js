@@ -17,6 +17,7 @@ function showSchedule() {
 	}
 }
 
+
 function createTable(tableData) {
   var table = document.createElement('table');
   var tableBody = document.createElement('tbody');

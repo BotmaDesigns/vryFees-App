@@ -2,10 +2,10 @@
 <widget id="co.za.botmadesigns.vryFees" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>vryFees</name>
     <description>
-        Push sample application that receives push notifications.
+        The test APP of the Vryfees
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="botmaJ@hotmail.com" href="http://botmaDesigns.co.za">
+        BotmaDesigns.co.za
     </author>
     <content src="index.html" />
     <icon src="icon.png" />

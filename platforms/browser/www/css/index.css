@@ -87,6 +87,11 @@ article{
 	margin-right:1em;
 }
 
+#map{
+	width:100%;
+	height:auto;
+}
+
 .venueBtn{
 	width:100%;
 	text-align:center;
@@ -97,7 +102,9 @@ article{
 	width:100%;
 	text-align:center;
 }
-
+.venueSchedule a{
+	color:black;
+}
 .venueSchedule td {
 	padding:1em 0 1em 0;
 }
@@ -106,6 +113,11 @@ article{
 
 .menu a:not(:first-child) {
 	display: none;
+}
+
+.catBtn{
+	width:100%;
+	background-color:#c73476;
 }
 
 .showMenu{
@@ -158,7 +170,7 @@ article{
 	width:100%;
 }
 
-.VenueTitle{
+.venueTitle{
 	background-color:white;
 	padding-bottom:1em;
 	color:#c73476;
@@ -168,6 +180,18 @@ article{
 	font-size:1.2em;
 }
 
+.catSchedule{
+	display:none;
+	text-align:center;
+	background-color:#1e83c2;
+}
+.catSchedule td {padding:0.5em 0 0.5em 0;width:100vw;}
+.catSchedule tr:nth-child(even){background-color: yellow;}
+.catSchedule tr:nth-child(odd){background-color: green;}
+.catSchedule.show{
+	display:block;
+}
+
 .categoriesTable{
 	width:100%;
 	background-color:#c73476;
@@ -175,6 +199,62 @@ article{
 }
 .categoriesTable tr{background-color:#c73476;}
 .categoriesTable td{padding:1em 0 1em 0;}
+
+.schedule{
+	width:100%;
+	text-align:center;
+	margin:auto;
+	font-weight:bold;
+	color:white;
+}
+.schedule td{padding:1em 0 1em 0;}
+.schedule tr:nth-child(even){background-color: #1e83c2;}
+.schedule tr:nth-child(odd){background-color: #c73476;}
+
+.showImg{
+	height:20em;
+	width:100%;
+}
+
+.showTitle{
+	background-color:#c73476;
+	padding-bottom:1.5em;
+	color:#fff;
+	font-weight:bold;
+	text-align:center;
+	margin-top:-1.6em;
+	font-size:1.2em;
+}
+
+.showDesc{
+	background-color:white;
+	color:#000;
+	padding:1em;
+}
+
+.buyTicket {
+	background-color:#c73476;
+	padding-bottom:1.5em;
+	padding-top:1.5em;
+	color:#fff;
+	font-weight:bold;
+	text-align:center;
+	font-size:1.2em;
+}
+.buyTicket a{
+	color:#000;
+}
+
+.mapBtn{
+	text-align:center;
+	width:100%;
+	background-color:#c73476;
+	padding:1em 0 1em 0;
+	margin:auto;
+	font-weight:bold;
+}
+
+.mapBtn:nth-child(even){background-color: #blue;}
 
 /* Portrait layout (default) */
 .app {
@@ -214,5 +294,7 @@ article{
     to { opacity: 1.0; }
 }
 
-#odionImg{background:url(../img/venues/odion.jpg) center center no-repeat; background-size:100% auto;}
+#odeionImg{background:url(../img/venues/odion.jpg) center center no-repeat; background-size:100% auto;}
+
+#show1Img{background:url(../img/shows/show1.jpg) center center no-repeat; background-size:100% auto;}
 
