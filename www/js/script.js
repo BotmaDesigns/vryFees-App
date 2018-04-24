@@ -1,4 +1,79 @@
 
+function getShows()
+{
+fetch('http://vryfees.botmasoftware.com/api.ashx', {
+  mode: 'cors'}).then(function(response) {
+  return response.json();
+}).then(function(data) {
+  //console.log(data);
+                for (i=0;i<data.length;i++){
+					document.getElementById(data[i].Categories).innerHTML += "</br>" + "<a href='show"+i+".html'>" + data[i].Name +"</a>" + "</br>";
+                }
+                }).catch(function() {
+                  console.log("Booo");
+                });
+}
+
+function nameShows()
+{
+fetch('http://vryfees.botmasoftware.com/api.ashx', {
+  mode: 'cors'}).then(function(response) {
+  return response.json();
+}).then(function(data) {
+  //console.log(data);
+                for (i=0;i<data.length;i++){
+					document.getElementById("shows").innerHTML += "</br>" + "<a href='show"+i+".html'>" + data[i].Name +"</a>" + "</br>";
+                }
+                }).catch(function() {
+                  console.log("Booo");
+                });
+}
+
+function getToday(){
+	
+	var todayDate = new Date();
+	document.getElementById("today").innerHTML = todayDate.toDateString();
+		
+	fetch('http://vryfees.botmasoftware.com/api.ashx', {
+  mode: 'cors'}).then(function(response) {
+  return response.json();
+}).then(function(data) {
+                for (i=0;i<data.length;i++){
+					if(data[i].Schedules[j].Date = todayDate){
+						var div = document.createElement("div");
+						div.setAttribute("class", "venueSchedule").innerHTML = "write this info down";
+					};
+                }
+                }).catch(function() {
+                  console.log("Booo");
+                });
+}
+
+function getVenueInfo(){
+	fetch('http://vryfees.botmasoftware.com/api.ashx', {
+	mode: 'cors'}).then(function(response) {
+	return response.json();
+	}).then(function(data) {
+					document.getElementById("googleMapVenue").innerHTML = "<a href='"+data[0].Venue+"'>View in Google Maps</a>";
+		}).catch(function() {
+			console.log("Booo");
+		});
+}
+
+function populateInfo(showNum){
+	fetch('http://vryfees.botmasoftware.com/api.ashx', {
+	mode: 'cors'}).then(function(response) {
+	return response.json();
+	}).then(function(data) {
+		document.getElementById("buyTicket").innerHTML = "<a href='"+data[showNum].shopURL+"'>book tickets now on CompuTicket.com</a>";
+		document.getElementById("title").innerHTML = data[showNum].Name;
+		document.getElementById("showDesc").innerHTML = "Genre: " + data[showNum].Genres + "<p>" + data[showNum].Synopses + "</p><p>Author: " + data[showNum].Authors + "</p>Actors: " + data[showNum].Actors;
+		}).catch(function() {
+			console.log("Booo");
+		});
+}
+
+
 function myFunction() {
     var x = document.getElementById("menu");
     if (x.className === "menu") {
@@ -8,37 +83,14 @@ function myFunction() {
     }
 }
 
-function showSchedule() {
-	var x = document.getElementById("comedy");
+function showSchedule(y) {
+	var x = document.getElementById(y);
 	if (x.className === "catSchedule") {
 		x.className += " show";
 	} else {
 		x.className = "catSchedule";
 	}
 }
-
-
-function createTable(tableData) {
-  var table = document.createElement('table');
-  var tableBody = document.createElement('tbody');
-  table.className="venueSchedule";
-
-  tableData.forEach(function(rowData) {
-    var row = document.createElement('tr');
-
-    rowData.forEach(function(cellData) {
-      var cell = document.createElement('td');
-      cell.appendChild(document.createTextNode(cellData));
-      row.appendChild(cell);
-    });
-
-    tableBody.appendChild(row);
-  });
-
-  table.appendChild(tableBody);
-  document.body.appendChild(table);
-}
-
 
 
 /*function createTableCat(tableData) {

@@ -52,23 +52,25 @@
 				<a href="index.html">Home</a>
 				<a href="program.html">Full Program</a>
 				<a href="categories.html">Categories</a>
-				<a href="shows.html">Artists / Shows</a>
+				<a href="shows.html">All Shows / Artists</a>
 				<a href="venues.html" class="active">Venues</a>
-				<a href="schedule.html">Schedule</a>
+				<a href="schedule.html">Today's Schedule</a>
 				<a href="map.html">Map</a>
 				<a href="faq.html">FAQ</a>
+			
+				<div id="titleBar">
+					<div id="logo"></div>
+					
+					<div id="logoWrapper">
+						<span id="vrystaat">vrystaat</span>
+						</br>
+						<span id="subText">Kunstefees &#8226; Arts Festival</span>
+					</div>
+				</div>
 			</div>
 		</div>
 		
-		<div id="titleBar">
-			<div id="logo"></div>
-			
-			<div id="logoWrapper">
-				<span id="vrystaat">vrystaat</span>
-				</br>
-				<span id="subText">Kunstefees &#8226; Arts Festival</span>
-			</div>
-		</div>
+		
 	</header>
 	
 	<article>
@@ -78,9 +80,7 @@
 			Odeion School of Music
 		</div>
 		
-		<div class="googleVenueLink">
-			<a href="https://www.google.co.za/maps/place/Odeion+School+of+Music,+Universiteit+van+die+Vrystaat,+Kanseliersweg,+Universitas,+Park+West,+Bloemfontein,+9301/@-29.1108464,26.1908679,17z/data=!4m2!3m1!1s0x1e8fc52f617e97dd:0x3e3188697d1bc5cd">view in Google Maps</a>
-		</div>
+		<div class="googleVenueLink" id="googleMapVenue"></div>
 		<table class="venueSchedule">
 			<tr><td><a href="show1.html">first show at odeion</a></td><td>13:30</td></tr>
 			<tr><td>second show at odeion</td><td>15:00</td></tr>
@@ -90,7 +90,9 @@
 	
 	
 	</article>	
-	
+	<script>
+		getVenueInfo();
+	</script>
 </body>
 
 </html>

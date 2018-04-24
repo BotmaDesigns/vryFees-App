@@ -70,7 +70,12 @@ article{
 
 #titleBar{
 	padding:0 1em 1em 1em;
+	font-size:0.7em;
 	width:100%;
+	height:100%;
+	background-color:#fff;
+	margin-top:auto;
+	margin-bottom:0;
 }
 
 #logoWrapper{
@@ -92,6 +97,14 @@ article{
 	height:auto;
 }
 
+#shows{
+	background-color:#c73476;
+	padding:1em 1em 2em 1em;
+	text-align:center;
+	background-color:rgba(199, 52, 118, 0.95);
+}
+#shows a{color:white;}
+
 .venueBtn{
 	width:100%;
 	text-align:center;
@@ -101,6 +114,8 @@ article{
 .venueSchedule{
 	width:100%;
 	text-align:center;
+	background-color:#474a59;
+	color:white;
 }
 .venueSchedule a{
 	color:black;
@@ -117,13 +132,13 @@ article{
 
 .catBtn{
 	width:100%;
-	background-color:#c73476;
 }
 
 .showMenu{
 	display:block;
 	text-align:left;
 	background-color:#c73476;
+	height:100vh;
 	margin-bottom:0.7em;
 }
 
@@ -142,15 +157,17 @@ article{
 
 .active{background-color:#1e83c2;}
 
+
 .venueLink{
-	background-color:#c73476;
+	/*background-color:#c73476;*/
 	width:100%;
 	font-weight:bold;
 	text-align:center;
 }
 .venueLink a{color:white;}
 .venueLink td{padding:1em 0 1em 0;}
-.venueLink tr:nth-child(even){background-color: #1e83c2;}
+.venueLink tr:nth-child(even){background-color:rgba(30, 131, 194, 0.9);}
+.venueLink tr:nth-child(odd){background-color:rgba(199, 52, 118, 0.95);}
 
 .googleVenueLink{
 	text-align:center;
@@ -180,17 +197,28 @@ article{
 	font-size:1.2em;
 }
 
+.catLink{
+	text-align:center;
+	width:100%;
+	padding:1em 0 1em 0;
+	background-color:rgba(30, 131, 194, 0.9);
+	margin:auto;
+	font-weight:bold;
+
+
+}
+.catLink a{color:white;}
+
 .catSchedule{
 	display:none;
 	text-align:center;
-	background-color:#1e83c2;
+	background-color:#c73476;
 }
-.catSchedule td {padding:0.5em 0 0.5em 0;width:100vw;}
-.catSchedule tr:nth-child(even){background-color: yellow;}
-.catSchedule tr:nth-child(odd){background-color: green;}
 .catSchedule.show{
-	display:block;
+	display:block; 
+	padding-bottom:1em;
 }
+.catSchedule.show a{color:#fff;}
 
 .categoriesTable{
 	width:100%;
@@ -207,9 +235,9 @@ article{
 	font-weight:bold;
 	color:white;
 }
-.schedule td{padding:1em 0 1em 0;}
-.schedule tr:nth-child(even){background-color: #1e83c2;}
-.schedule tr:nth-child(odd){background-color: #c73476;}
+.schedule a{color:white;}
+.schedule :nth-child(even){background-color: #1e83c2; padding:1.5em;}
+.schedule :nth-child(odd){background-color: #c73476; padding:1.5em;}
 
 .showImg{
 	height:20em;
@@ -242,7 +270,7 @@ article{
 	font-size:1.2em;
 }
 .buyTicket a{
-	color:#000;
+	color:#fff;
 }
 
 .mapBtn{

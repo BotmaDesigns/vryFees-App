@@ -52,37 +52,38 @@
 				<a href="index.html">Home</a>
 				<a href="program.html">Full Program</a>
 				<a href="categories.html">Categories</a>
-				<a href="shows.html" class="active">Artists / Shows</a>
+				<a href="shows.html" class="active">All Shows / Artists</a>
 				<a href="venues.html">Venues</a>
-				<a href="schedule.html">Schedule</a>
+				<a href="schedule.html">Today's Schedule</a>
 				<a href="map.html">Map</a>
 				<a href="faq.html">FAQ</a>
+		
+				<div id="titleBar">
+					<div id="logo"></div>
+					
+					<div id="logoWrapper">
+						<span id="vrystaat">vrystaat</span>
+						</br>
+						<span id="subText">Kunstefees &#8226; Arts Festival</span>
+					</div>
+				</div>
 			</div>
 		</div>
 		
-		<div id="titleBar">
-			<div id="logo"></div>
-			
-			<div id="logoWrapper">
-				<span id="vrystaat">vrystaat</span>
-				</br>
-				<span id="subText">Kunstefees &#8226; Arts Festival</span>
-			</div>
-		</div>
+		
 	</header>
 	
 	<article>
 	
 		<div class="showTitle">
 			<div class="showImg" id="show1Img"></div>
-			Show nr. 1
+			<div id="title"></div>
 		</div>
 		
-		<div class="showDesc">
-			this is the descriptive text of the show that tells you everything you need to know about the thing that is the thing.
+		<div class="showDesc" id="showDesc">
 		</div>
 		
-		<div class="buyTicket">
+		<div class="buyTicket" id="buyTicket">
 			<a href="https://online.computicket.com/web/event/katy_perry_witness_the_tour/1219774980">book tickets now on CompuTicket.com</a>
 		</div>
 		
@@ -94,7 +95,9 @@
 		</table>
 	
 	</article>
-	
+	<script>
+		populateInfo(0);
+	</script>
 </body>
 
 </html>

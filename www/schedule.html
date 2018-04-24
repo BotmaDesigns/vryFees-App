@@ -52,41 +52,37 @@
 				<a href="index.html">Home</a>
 				<a href="program.html">Full Program</a>
 				<a href="categories.html">Categories</a>
-				<a href="shows.html">Artists / Shows</a>
+				<a href="shows.html">All Shows / Artists</a>
 				<a href="venues.html">Venues</a>
-				<a href="schedule.html" class="active">Schedule</a>
+				<a href="schedule.html" class="active">Today's Schedule</a>
 				<a href="map.html">Map</a>
 				<a href="faq.html">FAQ</a>
+	
+				<div id="titleBar">
+					<div id="logo"></div>
+					
+					<div id="logoWrapper">
+						<span id="vrystaat">vrystaat</span>
+						</br>
+						<span id="subText">Kunstefees &#8226; Arts Festival</span>
+					</div>
+				</div>
 			</div>
 		</div>
 		
-		<div id="titleBar">
-			<div id="logo"></div>
-			
-			<div id="logoWrapper">
-				<span id="vrystaat">vrystaat</span>
-				</br>
-				<span id="subText">Kunstefees &#8226; Arts Festival</span>
-			</div>
-		</div>
+		
 	</header>
 	
 	<article>
-			<table class="schedule">
-				<tr><td id="today"></td></tr>
-				<tr><td><a href="show1.html">show 1</a></td><td><a href="venue_odeion.html">Odeion</a></td><td>13:00</td></tr>
-				<tr><td>show 2</td><td>Scaena</td><td>13:00</td></tr>
-				<tr><td>show 3</td><td>Odeion</td><td>15:00</td></tr>
-				<tr><td>show 4</td><td>Scaena</td><td>15:00</td></tr>
-				<tr><td>show 5</td><td>Odeion</td><td>16:30</td></tr>
-				<tr><td>show 6</td><td>Scaena</td><td>17:00</td></tr>
-			</table>
+			<div class="schedule">
+				<div id="today"></div>
+				
+			</div>
 			
 	</article>
 	
 	<script>
-		var todayDate = new Date();
-		document.getElementById("today").innerHTML = todayDate.toDateString();
+		getToday();
 	</script>
 
 </body>
