@@ -45,7 +45,7 @@ header{
 }
 
 article{
-	margin-top:9em;
+	margin-top:9.5em;
 }
 
 #menu{
@@ -118,7 +118,7 @@ article{
 	color:white;
 }
 .venueSchedule a{
-	color:black;
+	color:white;
 }
 .venueSchedule td {
 	padding:1em 0 1em 0;
@@ -159,14 +159,14 @@ article{
 
 
 .venueLink{
-	/*background-color:#c73476;*/
+	background-color:rgba(30, 131, 194, 0.9);
 	width:100%;
 	font-weight:bold;
 	text-align:center;
 }
 .venueLink a{color:white;}
 .venueLink td{padding:1em 0 1em 0;}
-.venueLink tr:nth-child(even){background-color:rgba(30, 131, 194, 0.9);}
+/*.venueLink tr:nth-child(even){background-color:rgba(30, 131, 194, 0.9);}*/
 .venueLink tr:nth-child(odd){background-color:rgba(199, 52, 118, 0.95);}
 
 .googleVenueLink{
@@ -189,13 +189,13 @@ article{
 
 .venueTitle{
 	background-color:white;
-	padding-bottom:1em;
 	color:#c73476;
 	font-weight:bold;
 	text-align:center;
-	margin-top:-1.6em;
 	font-size:1.2em;
 }
+
+.venueName{padding:1em 0 1em 0;}
 
 .catLink{
 	text-align:center;
@@ -242,6 +242,7 @@ article{
 .showImg{
 	height:20em;
 	width:100%;
+	margin-bottom:1em;
 }
 
 .showTitle{
@@ -281,6 +282,8 @@ article{
 	margin:auto;
 	font-weight:bold;
 }
+
+.bold{font-weight:bold;}
 
 .mapBtn:nth-child(even){background-color: #blue;}
 
@@ -322,7 +325,7 @@ article{
     to { opacity: 1.0; }
 }
 
-#odeionImg{background:url(../img/venues/odion.jpg) center center no-repeat; background-size:100% auto;}
+#odeionImg{background:url(../img/venues/odion.jpg) center center no-repeat; background-size:auto auto;}
 
-#show1Img{background:url(../img/shows/show1.jpg) center center no-repeat; background-size:100% auto;}
+#show1Img{background:url(../img/shows/show1.jpg) center center no-repeat; background-size:auto auto;}
 

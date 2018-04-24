@@ -38,12 +38,13 @@ function getToday(){
   mode: 'cors'}).then(function(response) {
   return response.json();
 }).then(function(data) {
-				var todayDate = new Date();
                 for (i=0;i<data.length;i++){
-					if(data[i].Schedules[j].Date = todayDate){
-						var div = document.createElement("div");
-						div.setAttribute("class", "venueSchedule").innerHTML = "write this info down";
-					};
+					for (j=0;j<data[i].Schedules.length;j++){
+						if(data[i].Schedules[j].StartTime == todayDate){
+							var div = document.createElement("div");
+							div.setAttribute("class", "venueSchedule").innerHTML = "write this info down";
+						};                
+					}
                 }
                 }).catch(function() {
                   console.log("Booo");
@@ -66,9 +67,12 @@ function populateInfo(showNum){
 	mode: 'cors'}).then(function(response) {
 	return response.json();
 	}).then(function(data) {
-		document.getElementById("buyTicket").innerHTML = "<a href='"+data[showNum].shopURL+"'>book tickets now on CompuTicket.com</a>";
+		document.getElementById("buyTicket").innerHTML = "<a href='"+data[showNum].Computicket+"'>book tickets now on CompuTicket.com</a>";
 		document.getElementById("title").innerHTML = data[showNum].Name;
-		document.getElementById("showDesc").innerHTML = "Genre: " + data[showNum].Genres + "<p>" + data[showNum].Synopses + "</p><p>Author: " + data[showNum].Authors + "</p>Actors: " + data[showNum].Actors;
+		document.getElementById("showDesc").innerHTML = "<span class='bold'>Genre:</span> " + data[showNum].Genres + "<p>" + data[showNum].Synopses + "</p><p><span class='bold'>Author:</span> " + data[showNum].Authors + "</p>" + "<span class='bold'>Actors:</span> ";
+			for (j=0;j<data[showNum].Actors.length;j++){
+                document.getElementById("showDesc").innerHTML += data[showNum].Actors[j].Name + ", ";
+                }
 		}).catch(function() {
 			console.log("Booo");
 		});
