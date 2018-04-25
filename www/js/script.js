@@ -1,4 +1,3 @@
-
 function getShows()
 {
 fetch('http://vryfees.botmasoftware.com/api.ashx', {
