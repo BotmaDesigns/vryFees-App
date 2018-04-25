@@ -166,8 +166,7 @@ article{
 }
 .venueLink a{color:white;}
 .venueLink td{padding:1em 0 1em 0;}
-/*.venueLink tr:nth-child(even){background-color:rgba(30, 131, 194, 0.9);}*/
-.venueLink tr:nth-child(odd){background-color:rgba(199, 52, 118, 0.95);}
+.venueLink :nth-child(even){background-color:rgba(199, 52, 118, 0.95);}
 
 .googleVenueLink{
 	text-align:center;
