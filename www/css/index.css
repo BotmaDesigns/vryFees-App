@@ -184,6 +184,8 @@ article{
 .venueImg{
 	height:20em;
 	width:100%;
+	text-align:center;
+	overflow:hidden;
 }
 
 .venueTitle{
@@ -242,6 +244,7 @@ article{
 	height:20em;
 	width:100%;
 	margin-bottom:1em;
+	overflow:hidden;
 }
 
 .showTitle{
@@ -250,7 +253,6 @@ article{
 	color:#fff;
 	font-weight:bold;
 	text-align:center;
-	margin-top:-1.6em;
 	font-size:1.2em;
 }
 

@@ -107,7 +107,7 @@ function getVenueInfo(venueNum){
 }
 
 function populateVenueInfo(venueNum){
-		document.getElementById("venueImg").innerHTML = "<img src='img/venues/" + venueNum + ".jpg' style='width:auto; height:100%;'></img>";
+		document.getElementById("venueImg").innerHTML = "<img src='img/venues/" + venueNum + ".jpg' style='min-width:100%; height:100%;'></img>";
 		for (i=0;i<serverData.length;i++){
 			for (j=0;j<serverData[i].Schedules.length;j++){
 				if (serverData[i].Schedules[j].Venue.Name == venueNum){
