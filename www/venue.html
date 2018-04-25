@@ -93,8 +93,8 @@
 		var url = new URL(url_string);
 		var venueNum = url.searchParams.get("venueNum");
 		
-		getVenueInfo(venueNum);
 		saveLocalData();
+		getVenueInfo(venueNum);
 		setTimeout(populateVenueInfo, 500, venueNum);
 	</script>
 </body>

@@ -77,22 +77,33 @@ function getToday(){
 
 function nameVenues()
 {
-
-                for (i=0;i<serverData.length;i++){
-					document.getElementById("venues").innerHTML += "<tr><td><a href='venue.html?venueNum=" + serverData[i].Name + "'>" + serverData[i].Name +"</a></td></tr>";
+fetch('http://vryfees.botmasoftware.com/venues.ashx', {
+  mode: 'cors'}).then(function(response) {
+  return response.json();
+}).then(function(data) {
+  //console.log(data);
+                for (i=0;i<data.length;i++){
+					document.getElementById("venues").innerHTML += "<tr><td><a href='venue.html?venueNum=" + data[i].Name + "'>" + data[i].Name +"</a></td></tr>";
                 }
-
+                }).catch(function() {
+                  console.log("Booo");
+                });
 }
 
 function getVenueInfo(venueNum){
-
-			for(i=0;i<serverData.length;i++){
-				if(serverData[i].Name == venueNum){
-					document.getElementById("venueName").innerHTML = serverData[i].Name;
-					document.getElementById("googleMapVenue").innerHTML = "<a href='" + serverData[i].GoogleMaps + "'>View in Google Maps</a>";
+	fetch('http://vryfees.botmasoftware.com/venues.ashx', {
+	mode: 'cors'}).then(function(response) {
+	return response.json();
+	}).then(function(data) {
+			for(i=0;i<data.length;i++){
+				if(data[i].Name == venueNum){
+					document.getElementById("venueName").innerHTML = data[i].Name;
+					document.getElementById("googleMapVenue").innerHTML = "<a href='" + data[i].GoogleMaps + "'>View in Google Maps</a>";
 				}
 			}		
-
+		}).catch(function() {
+			console.log("Booo");
+		});
 }
 
 function populateVenueInfo(venueNum){
