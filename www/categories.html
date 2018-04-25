@@ -117,15 +117,15 @@
 			
 		<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('PAP')" class="catBtn">PAP</a></div>	
 		<div id="PAP" class="catSchedule"></div>
-
-		<div id="wrapper"></div>
 			
 	</article>
 		
 	<script>
+		saveLocalData();
 		
-		getShows();
+			setTimeout(getShows, 500);
 		
+		//getShows();
 	</script>
 
 </body>

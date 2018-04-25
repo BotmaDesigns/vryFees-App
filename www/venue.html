@@ -94,7 +94,8 @@
 		var venueNum = url.searchParams.get("venueNum");
 		
 		getVenueInfo(venueNum);
-		populateVenueInfo(venueNum);
+		saveLocalData();
+		setTimeout(populateVenueInfo, 500, venueNum);
 	</script>
 </body>
 

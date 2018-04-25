@@ -96,7 +96,9 @@
 		var url = new URL(url_string);
 		var showNum = url.searchParams.get("showNum");
 	
-		populateInfo(showNum);
+		saveLocalData();
+		setTimeout(populateInfo, 500, showNum);
+		//populateInfo(showNum);
 	</script>
 </body>
 
