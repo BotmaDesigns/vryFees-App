@@ -49,15 +49,15 @@
 		<div id="menuBar">
 			<div id="menu" class="menu">
 				<a href="javascript:void(0);" onclick="myFunction()" class="menuBtn">&#9776;</br></a>
-				<a href="index.html">Home</a>
+				<a href="home.html">Home</a>
 				<a href="program.html">Full Program</a>
 				<a href="categories.html">Categories</a>
-				<a href="shows.html">All Shows / Artists</a>
-				<a href="venues.html" class="active">Venues</a>
+				<a href="shows.html" class="active">All Shows / Artists</a>
+				<a href="venues.html">Venues</a>
 				<a href="schedule.html">Today's Schedule</a>
 				<a href="map.html">Map</a>
 				<a href="faq.html">FAQ</a>
-			
+		
 				<div id="titleBar">
 					<div id="logo"></div>
 					
@@ -75,23 +75,30 @@
 	
 	<article>
 	
-		<div class="venueTitle">
-			<div class="venueImg" id="odeionImg"></div>
-			<div class="venueName">Odeion</div>
+		<div class="showTitle">
+			<div class="showImg" id="showImg"></div>
+			<div id="title"></div>
 		</div>
 		
-		<div class="googleVenueLink" id="googleMapVenue"></div>
-		<table class="venueSchedule">
-			<tr><td><a href="show1.html">first show at odeion</a></td><td>13:30</td></tr>
-			<tr><td>second show at odeion</td><td>15:00</td></tr>
-			<tr><td>third show at odeion</td><td>17:30</td></tr>
-			<tr><td>forth show at odeion</td><td>:30</td></tr>
+		<div class="showDesc" id="showDesc">
+		</div>
+		
+		<div class="buyTicket" id="buyTicket">
+		</div>
+		
+		<table class="venueSchedule" id="schedule">
+			
 		</table>
 	
-	
-	</article>	
+	</article>
 	<script>
-		getVenueInfo();
+		var url_string = window.location.href;
+		var url = new URL(url_string);
+		var showNum = url.searchParams.get("showNum");
+	
+		//saveLocalData();
+		//setTimeout(populateInfo, 1500, showNum);
+		populateInfo(showNum);
 	</script>
 </body>
 

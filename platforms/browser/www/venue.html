@@ -49,15 +49,15 @@
 		<div id="menuBar">
 			<div id="menu" class="menu">
 				<a href="javascript:void(0);" onclick="myFunction()" class="menuBtn">&#9776;</br></a>
-				<a href="index.html">Home</a>
+				<a href="home.html">Home</a>
 				<a href="program.html">Full Program</a>
 				<a href="categories.html">Categories</a>
-				<a href="shows.html" class="active">All Shows / Artists</a>
-				<a href="venues.html">Venues</a>
+				<a href="shows.html">All Shows / Artists</a>
+				<a href="venues.html" class="active">Venues</a>
 				<a href="schedule.html">Today's Schedule</a>
 				<a href="map.html">Map</a>
 				<a href="faq.html">FAQ</a>
-		
+			
 				<div id="titleBar">
 					<div id="logo"></div>
 					
@@ -75,28 +75,30 @@
 	
 	<article>
 	
-		<div class="showTitle">
-			<div class="showImg" id="show1Img"></div>
-			<div id="title"></div>
+		<div class="venueTitle">
+			<div class="venueImg" id="venueImg"></div>
+			<div class="venueName" id="venueName"></div>
 		</div>
 		
-		<div class="showDesc" id="showDesc">
-		</div>
-		
-		<div class="buyTicket" id="buyTicket">
-			<a href="https://online.computicket.com/web/event/katy_perry_witness_the_tour/1219774980">book tickets now on CompuTicket.com</a>
-		</div>
-		
-		<table class="venueSchedule">
-			<tr><td>Odeion School of Music</td><td>12/06/2018</td><td>13:30</td></tr>
-			<tr><td>Wynand Mouton Theater</td><td>12/06/2018</td><td>15:00</td></tr>
-			<tr><td>Venue title</td><td>12/06/2018</td><td>17:30</td></tr>
-			<tr><td>Venue title</td><td>12/06/2018</td><td>:30</td></tr>
+		<div class="googleVenueLink" id="googleMapVenue"></div>
+		<table class="venueSchedule" id="schedule">
+			
 		</table>
 	
-	</article>
+	
+	</article>	
 	<script>
-		populateInfo(0);
+	
+		var url_string = window.location.href;
+		var url = new URL(url_string);
+		var venueNum = url.searchParams.get("venueNum");
+		
+		//saveLocalData();
+		//setTimeout(getVenueInfo, 2000, venueNum);
+		//setTimeout(populateVenueInfo, 2000, venueNum);
+		
+		getVenueInfo(venueNum);
+		populateVenueInfo(venueNum);
 	</script>
 </body>
 

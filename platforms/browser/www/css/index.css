@@ -47,7 +47,13 @@ header{
 article{
 	margin-top:9.5em;
 }
+#fadeIn{
+	background:url(../img/VFlogo.png) center center no-repeat;
+	background-color:black;
+	width:100vw;
+	height:100vh;
 
+}
 #menu{
 	display:block;
 	font-size:1.7em;
@@ -104,6 +110,12 @@ article{
 	background-color:rgba(199, 52, 118, 0.95);
 }
 #shows a{color:white;}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1.5s, opacity 1.5s linear;
+}
 
 .venueBtn{
 	width:100%;
@@ -166,8 +178,7 @@ article{
 }
 .venueLink a{color:white;}
 .venueLink td{padding:1em 0 1em 0;}
-/*.venueLink tr:nth-child(even){background-color:rgba(30, 131, 194, 0.9);}*/
-.venueLink tr:nth-child(odd){background-color:rgba(199, 52, 118, 0.95);}
+.venueLink :nth-child(even){background-color:rgba(199, 52, 118, 0.95);}
 
 .googleVenueLink{
 	text-align:center;
@@ -185,6 +196,8 @@ article{
 .venueImg{
 	height:20em;
 	width:100%;
+	text-align:center;
+	overflow:hidden;
 }
 
 .venueTitle{
@@ -243,6 +256,7 @@ article{
 	height:20em;
 	width:100%;
 	margin-bottom:1em;
+	overflow:hidden;
 }
 
 .showTitle{
@@ -251,7 +265,6 @@ article{
 	color:#fff;
 	font-weight:bold;
 	text-align:center;
-	margin-top:-1.6em;
 	font-size:1.2em;
 }
 
@@ -324,8 +337,3 @@ article{
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
-
-#odeionImg{background:url(../img/venues/odion.jpg) center center no-repeat; background-size:auto auto;}
-
-#show1Img{background:url(../img/shows/show1.jpg) center center no-repeat; background-size:auto auto;}
-

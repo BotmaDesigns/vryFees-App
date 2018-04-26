@@ -1,7 +1,9 @@
-var serverData=null;
+var serverData = JSON.parse(localStorage.getItem("data"));
+var venueData = JSON.parse(localStorage.getItem("venueUpdate"));
 
 function saveLocalData()
 {
+	
 	fetch('http://vryfees.botmasoftware.com/lastupdate.ashx', {
 	  mode: 'cors'
 	}).then(function(response) {
@@ -10,7 +12,7 @@ function saveLocalData()
 		console.log(LastUpdate)
 		var intDate = localStorage.getItem("lastupdate");
 		var UpToDate=false;
-		if (intDate != null)
+		if (intDate != null && serverData!=null && venueData!=null)
 		{
 			console.log('intDate found');
 			console.log(parseFloat(intDate));
@@ -18,6 +20,8 @@ function saveLocalData()
 			{
 				console.log('data up to date');
 				UpToDate=true;
+				window.location.replace('home.html');
+				//document.getElementById("fadeIn").setAttribute("class", "hide");
 			}
 		}
 		if (!UpToDate)
@@ -36,10 +40,25 @@ function saveLocalData()
 			}).catch(function() {
 				console.log("Booo2");
 			});
+			
+			fetch('http://vryfees.botmasoftware.com/venues.ashx', {
+				mode: 'cors'
+			}).then(function(response) {
+				return response.json();
+			}).then(function(data) {
+				//console.log(data);
+				localStorage.setItem("venueUpdate",JSON.stringify(data))
+				venueData = JSON.parse(localStorage.getItem("venueUpdate"));
+			}).catch(function() {
+				console.log("Booo3");
+			});
+			window.location.replace('home.html');
 		}
 		else
 		{
 			serverData = JSON.parse(localStorage.getItem("data"));
+			venueData = JSON.parse(localStorage.getItem("dataVenue"));
+			window.location.replace('home.html');
 		}		
 	}).catch(function() {
 		console.log("Booo1");
@@ -77,33 +96,18 @@ function getToday(){
 
 function nameVenues()
 {
-fetch('http://vryfees.botmasoftware.com/venues.ashx', {
-  mode: 'cors'}).then(function(response) {
-  return response.json();
-}).then(function(data) {
-  //console.log(data);
-                for (i=0;i<data.length;i++){
-					document.getElementById("venues").innerHTML += "<tr><td><a href='venue.html?venueNum=" + data[i].Name + "'>" + data[i].Name +"</a></td></tr>";
+                for (i=0;i<venueData.length;i++){
+					document.getElementById("venues").innerHTML += "<tr><td><a href='venue.html?venueNum=" + venueData[i].Name + "'>" + venueData[i].Name +"</a></td></tr>";
                 }
-                }).catch(function() {
-                  console.log("Booo");
-                });
 }
 
 function getVenueInfo(venueNum){
-	fetch('http://vryfees.botmasoftware.com/venues.ashx', {
-	mode: 'cors'}).then(function(response) {
-	return response.json();
-	}).then(function(data) {
-			for(i=0;i<data.length;i++){
-				if(data[i].Name == venueNum){
-					document.getElementById("venueName").innerHTML = data[i].Name;
-					document.getElementById("googleMapVenue").innerHTML = "<a href='" + data[i].GoogleMaps + "'>View in Google Maps</a>";
+			for(i=0;i<venueData.length;i++){
+				if(venueData[i].Name == venueNum){
+					document.getElementById("venueName").innerHTML = venueData[i].Name;
+					document.getElementById("googleMapVenue").innerHTML = "<a href='" + venueData[i].GoogleMaps + "'>View in Google Maps</a>";
 				}
 			}		
-		}).catch(function() {
-			console.log("Booo");
-		});
 }
 
 function populateVenueInfo(venueNum){
@@ -112,7 +116,7 @@ function populateVenueInfo(venueNum){
 			for (j=0;j<serverData[i].Schedules.length;j++){
 				if (serverData[i].Schedules[j].Venue.Name == venueNum){
 					var date = new Date(serverData[i].Schedules[j].StartTime);
-					document.getElementById("schedule").innerHTML += "<tr><td><a href='show.html?showNum=" + i + "'>" + serverData[i].Name + "</a></td><td>" + date.toDateString() + "</td><td>" + date.getHours() + ":" + date.getMinutes() + "</td></tr>";
+					document.getElementById("schedule").innerHTML += "<tr><td><a href='show.html?showNum=" + i + "'>" + serverData[i].Name + "</a></td><td>" + date.toDateString() + "</td><td>" + date.getHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + "</td></tr>";
 				}
 			}
 		}
@@ -130,7 +134,7 @@ function populateInfo(showNum){
                 }
 			for (j=0;j<serverData[showNum].Schedules.length;j++){
 				var date = new Date(serverData[showNum].Schedules[j].StartTime);
-					document.getElementById("schedule").innerHTML += "<tr><td>" + date.toDateString() + "</td><td><a href='venue.html?venueNum=" + serverData[showNum].Schedules[j].Venue.Name + "'>" + serverData[showNum].Schedules[j].Venue.Name + "</a></td><td>" + date.getHours() + ":" + date.getMinutes() + "</td></tr>";
+					document.getElementById("schedule").innerHTML += "<tr><td>" + date.toDateString() + "</td><td><a href='venue.html?venueNum=" + serverData[showNum].Schedules[j].Venue.Name + "'>" + serverData[showNum].Schedules[j].Venue.Name + "</a></td><td>" + date.getHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + "</td></tr>";
 				}
 
 }
