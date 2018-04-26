@@ -111,11 +111,17 @@ function getVenueInfo(venueNum){
 
 function populateVenueInfo(venueNum){
 		document.getElementById("venueImg").innerHTML = "<img src='img/venues/" + venueNum + ".jpg' style='min-width:100%; height:100%;'></img>";
+		var printName = null;
 		for (i=0;i<serverData.length;i++){
 			for (j=0;j<serverData[i].Schedules.length;j++){
 				if (serverData[i].Schedules[j].Venue.Name == venueNum){
-					var date = new Date(serverData[i].Schedules[j].StartTime);
-					document.getElementById("schedule").innerHTML += "<tr><td><a href='show.html?showNum=" + i + "'>" + serverData[i].Name + "</a></td><td>" + date.toDateString() + "</td><td>" + date.getHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + "</td></tr>";
+					if (printName != serverData[i].Name){
+						document.getElementById("schedule").innerHTML += "<tr><td><a href='show.html?showNum=" + i + "'>" + serverData[i].Name + "</a></td></tr>";
+						printName = serverData[i].Name;
+					}					
+					
+					/*var date = new Date(serverData[i].Schedules[j].StartTime);
+					document.getElementById("schedule").innerHTML += "<tr><td><a href='show.html?showNum=" + i + "'>" + serverData[i].Name + "</a></td><td>" + date.toDateString() + "</td><td>" + date.getHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + "</td></tr>";*/
 				}
 			}
 		}
@@ -127,7 +133,7 @@ function populateInfo(showNum){
 		document.getElementById("showImg").innerHTML = "<img src='img/shows/" + serverData[showNum].Name + ".jpg' style='width:auto; height:100%;'></img>";
 		document.getElementById("buyTicket").innerHTML = "<a href='"+serverData[showNum].Computicket + "'>book tickets now on CompuTicket.com</a>";
 		document.getElementById("title").innerHTML = serverData[showNum].Name;
-		document.getElementById("showDesc").innerHTML = "<span class='bold'>Genre:</span> " + serverData[showNum].Genres + "<p>" + serverData[showNum].Synopses + "</p><p><span class='bold'>Author:</span> " + serverData[showNum].Authors + "</p>" + "<span class='bold'>Actors:</span> ";
+		document.getElementById("showDesc").innerHTML = "<p><span class='bold'>Price: R</span> " + serverData[showNum].Price + "</p>" + "<span class='bold'>Genre:</span> " + serverData[showNum].Genres + "<p>" + serverData[showNum].AfrSynopses + "</p>" + "<p>" + serverData[showNum].Synopses + "</p><p><span class='bold'>Author:</span> " + serverData[showNum].Authors + "</p>" + "<span class='bold'>Featuring:</span> ";
 			for (j=0;j<serverData[showNum].Actors.length;j++){
 					document.getElementById("showDesc").innerHTML += serverData[showNum].Actors[j].Name + ", ";
                 }
