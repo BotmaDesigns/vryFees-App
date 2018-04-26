@@ -49,7 +49,7 @@ article{
 }
 #fadeIn{
 	background:url(../img/VFlogo.png) center center no-repeat;
-	background-color:black;
+	background-color:#000;
 	width:100vw;
 	height:100vh;
 

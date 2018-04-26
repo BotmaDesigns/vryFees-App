@@ -12,16 +12,15 @@ function saveLocalData()
 		console.log(LastUpdate)
 		var intDate = localStorage.getItem("lastupdate");
 		var UpToDate=false;
-		if (intDate != null && serverData!=null && venueData!=null)
+		if (intDate != null)
 		{
 			console.log('intDate found');
 			console.log(parseFloat(intDate));
-			if (parseFloat(intDate)>=LastUpdate.lastUpdate)
+			if (parseFloat(intDate)>=LastUpdate.lastUpdate && serverData!=null && venueData!=null)
 			{
 				console.log('data up to date');
 				UpToDate=true;
 				window.location.replace('home.html');
-				//document.getElementById("fadeIn").setAttribute("class", "hide");
 			}
 		}
 		if (!UpToDate)
@@ -52,7 +51,7 @@ function saveLocalData()
 			}).catch(function() {
 				console.log("Booo3");
 			});
-			window.location.replace('home.html');
+			//window.location.replace('home.html');
 		}
 		else
 		{
