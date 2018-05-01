@@ -51,7 +51,9 @@
 				<a href="javascript:void(0);" onclick="myFunction()" class="menuBtn">&#9776;</br></a>
 				<a href="home.html">Home</a>
 				<a href="program.html">Full Program</a>
-				<a href="categories.html">Categories</a>
+				<a href="main.html">Hoof / Main Program</a>	
+				<a href="vrynge.html">Vrynge</a>	
+				<a href="lit.html">Literatuur / Literature</a>	
 				<a href="shows.html" class="active">All Shows / Artists</a>
 				<a href="venues.html">Venues</a>
 				<a href="schedule.html">Today's Schedule</a>
@@ -74,6 +76,8 @@
 	</header>
 	
 	<article>
+			<div id="spacer"></div>
+
 	
 		<div class="showTitle">
 			<div class="showImg" id="showImg"></div>
@@ -95,9 +99,7 @@
 		var url_string = window.location.href;
 		var url = new URL(url_string);
 		var showNum = url.searchParams.get("showNum");
-	
-		//saveLocalData();
-		//setTimeout(populateInfo, 1500, showNum);
+		
 		populateInfo(showNum);
 	</script>
 </body>

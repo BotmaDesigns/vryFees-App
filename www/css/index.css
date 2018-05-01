@@ -44,9 +44,10 @@ header{
 	background-color:white;
 }
 
-article{
+/*article{
 	margin-top:9.5em;
-}
+}*/
+#spacer{height:9.5em;width:100%;}
 #fadeIn{
 	background-color:#000;
 	color:white;
@@ -161,6 +162,22 @@ article{
 }
 #shows a{color:white;}
 
+#today{
+	background-color:rgba(199, 52, 118, 0.95);
+	padding:1em;
+}
+
+#todayShed{
+	padding:0;
+	margin:0;
+	width:100%;
+}
+#todayShed :nth-child(even){background-color:rgba(199, 52, 118, 0.95);}
+
+.selectLink{
+	background-color:pink;
+	text-align:center;
+}
 .insideIMG{
 	display:block;
 	margin-left:auto;
@@ -184,20 +201,27 @@ article{
 .venueSchedule{
 	width:100%;
 	text-align:center;
-	background-color:#474a59;
 	color:white;
+	border-spacing:1px;
 }
 .venueSchedule a{
 	color:white;
 }
 .venueSchedule td {
 	padding:1em 0 1em 0;
+	background-color:rgba(30, 131, 194, 0.9);
 }
-.venueSchedule tr:nth-child(even){background-color: #c73476;}
-.venueSchedule tr:nth-child(odd){background-color: #1e83c2;}
 
 .menu a:not(:first-child) {
 	display: none;
+	font-size:0.9em;
+}
+
+.main{
+	display:none;
+}
+.main.show{
+	display:block;
 }
 
 .catBtn{
@@ -276,8 +300,6 @@ article{
 	background-color:rgba(30, 131, 194, 0.9);
 	margin:auto;
 	font-weight:bold;
-
-
 }
 .catLink a{color:white;}
 
@@ -304,12 +326,9 @@ article{
 	width:100%;
 	text-align:center;
 	margin:auto;
-	font-weight:bold;
 	color:white;
 }
 .schedule a{color:white;}
-.schedule :nth-child(even){background-color: #1e83c2; padding:1.5em;}
-.schedule :nth-child(odd){background-color: #c73476; padding:1.5em;}
 
 .showImg{
 	height:20em;

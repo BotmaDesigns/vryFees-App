@@ -68,10 +68,12 @@ function restartMsg(){
 	document.getElementById("errorMSG").innerHTML = "OOPS...</br>Something seems to have gone wrong, please try restarting the app.";
 }
 
-function getShows()
+function getShows(festType)
 {
 	for (i=0;i<serverData.length;i++){
+			if(serverData[i].Division == festType){
 					document.getElementById(serverData[i].Categories).innerHTML += "</br>" + "<a href='show.html?showNum="+i+"'>" + serverData[i].Name +"</a>" + "</br>";
+			}
                 }
 }
 
@@ -86,12 +88,12 @@ function nameShows()
 function getToday(){
 	
 	var todayDate = new Date();
-	document.getElementById("today").innerHTML = todayDate.toDateString();
+	document.getElementById("today").innerHTML = "<span class='bold'>" + todayDate.toDateString() + "</span>";
                 for (i=0;i<serverData.length;i++){
 					for (j=0;j<serverData[i].Schedules.length;j++){
-						if(serverData[i].Schedules[j].StartTime.toDateString() == todayDate){
-							var div = document.createElement("div");
-							div.setAttribute("class", "venueSchedule").innerHTML = "write this info down";
+						var date = new Date(serverData[i].Schedules[j].StartTime);
+						if(date.toDateString() == todayDate.toDateString()){
+							document.getElementById("todayShed").innerHTML += "<tr><td><a href='show.html?showNum=" + i + "'>" + serverData[i].Name + "</a></td><td><a href='venue.html?venueNum=" + serverData[i].Schedules[j].Venue.Name + "'>" + serverData[i].Schedules[j].Venue.Name + "</a></td><td>" + date.getUTCHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + "</td></tr>"
 						};                
 					}
                 }
@@ -130,11 +132,11 @@ function populateVenueInfo(venueNum){
 
 
 function populateInfo(showNum){
-
+	
 		document.getElementById("showImg").innerHTML = "<img src='img/shows/" + serverData[showNum].Name + ".jpg' style='min-width:100%; height:100%;'></img>";
-		document.getElementById("buyTicket").innerHTML = "<a href='"+serverData[showNum].Computicket + "'>book tickets now on CompuTicket.com</a>";
+		document.getElementById("buyTicket").innerHTML = "<a href='"+serverData[showNum].Computicket + "'>Buy tickets now on CompuTicket.com</a>";
 		document.getElementById("title").innerHTML = serverData[showNum].Name;
-		document.getElementById("showDesc").innerHTML = "<span class='bold'><p>Price: R " + serverData[showNum].Price + "</p>" + "Genre:</span> " + serverData[showNum].Genres + "<p>" + serverData[showNum].AfrSynopses + "</p>" + "<p>" + serverData[showNum].Synopses + /*"</p><p><span class='bold'>Author:</span> " + serverData[showNum].Authors +*/ "</p>" + "<span class='bold'>Featuring:</span> ";
+		document.getElementById("showDesc").innerHTML = "<span class='bold'><p>Price: R " + serverData[showNum].Price + "</p>" + "Genre:</span> " + serverData[showNum].AfrGenres + " / " + serverData[showNum].Genres + "<p>" + serverData[showNum].AfrSynopses + "</p>" + "<p>" + serverData[showNum].Synopses + /*"</p><p><span class='bold'>Author:</span> " + serverData[showNum].Authors +*/ "</p>" + "<span class='bold'>Featuring:</span> ";
 			for (j=0;j<serverData[showNum].Actors.length;j++){
 					document.getElementById("showDesc").innerHTML += serverData[showNum].Actors[j].Name + ", ";
                 }
@@ -163,7 +165,6 @@ function showSchedule(y) {
 		x.className = "catSchedule";
 	}
 }
-
 
 /*function createTableCat(tableData) {
   var table = document.createElement('table');
