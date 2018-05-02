@@ -166,12 +166,12 @@ function populateInfo(showNum){
 
 }
 
-/*function printProgram(){
-	for(i=1;i<=11;i++){
-		document.getElementById("program").innerHTML += "<img class='program' src='img/program/program "+i+".jpg'></img>";
+function printProgram(){
+	for(i=1;i<=46;i++){
+		document.getElementById("program").innerHTML += "<img class='program' src='img/program/program"+i+".jpg'></img>";
 	}
 }
-*/
+
 var slideIndex = 0;
 function carousel() {
 	var i;
