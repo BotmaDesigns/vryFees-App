@@ -59,6 +59,7 @@ header{
 #errorMSG{
 	color:white;
 	position:absolute;
+	text-align:center;
 	top:1em;
 	padding:2em;
 }
@@ -155,7 +156,6 @@ header{
 }
 
 #shows{
-	background-color:#c73476;
 	padding:1em 1em 2em 1em;
 	text-align:center;
 	background-color:rgba(199, 52, 118, 0.95);
@@ -173,6 +173,19 @@ header{
 	width:100%;
 }
 #todayShed :nth-child(even){background-color:rgba(199, 52, 118, 0.95);}
+
+#program{width:100vw; height:auto;}
+
+#homeAdd1{width:100%;}
+#addImg1{height:20em;background-color:pink;}
+#addTitle1{background-color:rgba(255, 255, 255, 0.9);padding:1em 0 1em 0;text-align:center;color:black;font-weight:bold;}
+#addSynop1{background-color:rgba(255, 255, 255, 0.9); color:black; padding:0 1em 1em 1em;}
+#homeAdd2{width:100%;}
+#addImg2{height:20em;background-color:pink;}
+#addTitle2{background-color:rgba(255, 255, 255, 0.9);padding:1em 0 1em 0;text-align:center;color:black;font-weight:bold;}
+#addSynop2{background-color:rgba(255, 255, 255, 0.9); color:black; padding:0 1em 1em 1em;}
+
+.program{width:100vw;}
 
 .selectLink{
 	background-color:pink;
@@ -298,6 +311,7 @@ header{
 	width:100%;
 	padding:1em 0 1em 0;
 	background-color:rgba(30, 131, 194, 0.9);
+	color:white;
 	margin:auto;
 	font-weight:bold;
 }

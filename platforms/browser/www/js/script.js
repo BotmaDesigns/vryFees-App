@@ -12,16 +12,15 @@ function saveLocalData()
 		console.log(LastUpdate)
 		var intDate = localStorage.getItem("lastupdate");
 		var UpToDate=false;
-		if (intDate != null && serverData!=null && venueData!=null)
+		if (intDate != null)
 		{
 			console.log('intDate found');
 			console.log(parseFloat(intDate));
-			if (parseFloat(intDate)>=LastUpdate.lastUpdate)
+			if (parseFloat(intDate)>=LastUpdate.lastUpdate && serverData!=null && venueData!=null)
 			{
 				console.log('data up to date');
 				UpToDate=true;
 				window.location.replace('home.html');
-				//document.getElementById("fadeIn").setAttribute("class", "hide");
 			}
 		}
 		if (!UpToDate)
@@ -52,7 +51,7 @@ function saveLocalData()
 			}).catch(function() {
 				console.log("Booo3");
 			});
-			window.location.replace('home.html');
+			setTimeout(saveLocalData, 1000);
 		}
 		else
 		{
@@ -65,30 +64,55 @@ function saveLocalData()
 	});
 }
 
-function getShows()
+function restartMsg(msg){
+	document.getElementById("errorMSG").innerHTML = msg;
+}
+
+function showAdd(){
+	var showNum = Math.floor((Math.random() * 50) + 1);
+	var showNum2 = Math.floor((Math.random() * 50) + 1);
+	
+	document.getElementById("homeAdd1").innerHTML = "<a href='show.html?showNum="+showNum+"'><div id='addImg1'></div><div id='addTitle1'></div><div id='addSynop1'></div></a>";
+	document.getElementById("addImg1").innerHTML = "<img src='img/shows/" + serverData[showNum].Name + ".jpg' style='min-width:100%; height:100%;'></img>";
+	document.getElementById("addTitle1").innerHTML = serverData[showNum].Name;
+	document.getElementById("addSynop1").innerHTML = serverData[showNum].Synopses;
+				
+	document.getElementById("homeAdd2").innerHTML = "<a href='show.html?showNum="+showNum2+"'><div id='addImg2'></div><div id='addTitle2'></div><div id='addSynop2'></div></a>";
+	document.getElementById("addImg2").innerHTML = "<img src='img/shows/" + serverData[showNum2].Name + ".jpg' style='min-width:100%; height:100%;'></img>";
+	document.getElementById("addTitle2").innerHTML = serverData[showNum2].Name;
+	document.getElementById("addSynop2").innerHTML = serverData[showNum2].Synopses;
+			
+
+}
+
+function getShows(festType)
 {
 	for (i=0;i<serverData.length;i++){
+			if(serverData[i].Division == festType){
 					document.getElementById(serverData[i].Categories).innerHTML += "</br>" + "<a href='show.html?showNum="+i+"'>" + serverData[i].Name +"</a>" + "</br>";
+			}
                 }
 }
 
-function nameShows()
+function nameShows(showType)
 {
 
                 for (i=0;i<serverData.length;i++){
-					document.getElementById("shows").innerHTML += "</br><a href='show.html?showNum="+i+"'>" + serverData[i].Name +"</a></br>";
+					if(serverData[i].Division == showType){
+						document.getElementById("shows").innerHTML += "</br><a href='show.html?showNum="+i+"'>" + serverData[i].Name +"</a></br>";
+					}
                 }
 }
 
 function getToday(){
 	
 	var todayDate = new Date();
-	document.getElementById("today").innerHTML = todayDate.toDateString();
+	document.getElementById("today").innerHTML = "<span class='bold'>" + todayDate.toDateString() + "</span>";
                 for (i=0;i<serverData.length;i++){
 					for (j=0;j<serverData[i].Schedules.length;j++){
-						if(serverData[i].Schedules[j].StartTime.toDateString() == todayDate){
-							var div = document.createElement("div");
-							div.setAttribute("class", "venueSchedule").innerHTML = "write this info down";
+						var date = new Date(serverData[i].Schedules[j].StartTime);
+						if(date.toDateString() == todayDate.toDateString()){
+							document.getElementById("todayShed").innerHTML += "<tr><td><a href='show.html?showNum=" + i + "'>" + serverData[i].Name + "</a></td><td><a href='venue.html?venueNum=" + serverData[i].Schedules[j].Venue.Name + "'>" + serverData[i].Schedules[j].Venue.Name + "</a></td><td>" + date.getUTCHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + "</td></tr>"
 						};                
 					}
                 }
@@ -111,12 +135,15 @@ function getVenueInfo(venueNum){
 }
 
 function populateVenueInfo(venueNum){
-		document.getElementById("venueImg").innerHTML = "<img src='img/venues/" + venueNum + ".jpg' style='min-width:100%; height:100%;'></img>";
+		document.getElementById("venueImg").innerHTML = "<img class='insideIMG' src='img/venues/" + venueNum + ".jpg'></img>";
+		var printName = null;
 		for (i=0;i<serverData.length;i++){
 			for (j=0;j<serverData[i].Schedules.length;j++){
 				if (serverData[i].Schedules[j].Venue.Name == venueNum){
-					var date = new Date(serverData[i].Schedules[j].StartTime);
-					document.getElementById("schedule").innerHTML += "<tr><td><a href='show.html?showNum=" + i + "'>" + serverData[i].Name + "</a></td><td>" + date.toDateString() + "</td><td>" + date.getHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + "</td></tr>";
+					if (printName != serverData[i].Name){
+						document.getElementById("schedule").innerHTML += "<tr><td><a href='show.html?showNum=" + i + "'>" + serverData[i].Name + "</a></td></tr>";
+						printName = serverData[i].Name;
+					}					
 				}
 			}
 		}
@@ -124,21 +151,39 @@ function populateVenueInfo(venueNum){
 
 
 function populateInfo(showNum){
-
-		document.getElementById("showImg").innerHTML = "<img src='img/shows/" + serverData[showNum].Name + ".jpg' style='width:auto; height:100%;'></img>";
-		document.getElementById("buyTicket").innerHTML = "<a href='"+serverData[showNum].Computicket + "'>book tickets now on CompuTicket.com</a>";
+	
+		document.getElementById("showImg").innerHTML = "<img src='img/shows/" + serverData[showNum].Name + ".jpg' style='min-width:100%; height:100%;'></img>";
+		document.getElementById("buyTicket").innerHTML = "<a href='"+serverData[showNum].Computicket + "'>Buy tickets now on CompuTicket.com</a>";
 		document.getElementById("title").innerHTML = serverData[showNum].Name;
-		document.getElementById("showDesc").innerHTML = "<span class='bold'>Genre:</span> " + serverData[showNum].Genres + "<p>" + serverData[showNum].Synopses + "</p><p><span class='bold'>Author:</span> " + serverData[showNum].Authors + "</p>" + "<span class='bold'>Actors:</span> ";
+		document.getElementById("showDesc").innerHTML = "<span class='bold'><p>Price: R " + serverData[showNum].Price + "</p>" + "Genre:</span> " + serverData[showNum].AfrGenres + " / " + serverData[showNum].Genres + "<p>" + serverData[showNum].AfrSynopses + "</p>" + "<p>" + serverData[showNum].Synopses + /*"</p><p><span class='bold'>Author:</span> " + serverData[showNum].Authors +*/ "</p>" + "<span class='bold'>Featuring:</span> ";
 			for (j=0;j<serverData[showNum].Actors.length;j++){
 					document.getElementById("showDesc").innerHTML += serverData[showNum].Actors[j].Name + ", ";
                 }
 			for (j=0;j<serverData[showNum].Schedules.length;j++){
 				var date = new Date(serverData[showNum].Schedules[j].StartTime);
-					document.getElementById("schedule").innerHTML += "<tr><td>" + date.toDateString() + "</td><td><a href='venue.html?venueNum=" + serverData[showNum].Schedules[j].Venue.Name + "'>" + serverData[showNum].Schedules[j].Venue.Name + "</a></td><td>" + date.getHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + "</td></tr>";
+					document.getElementById("schedule").innerHTML += "<tr><td>" + date.toDateString() + "</td><td><a href='venue.html?venueNum=" + serverData[showNum].Schedules[j].Venue.Name + "'>" + serverData[showNum].Schedules[j].Venue.Name + "</a></td><td>" + date.getUTCHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + "</td></tr>";
 				}
 
 }
 
+function printProgram(){
+	for(i=1;i<=11;i++){
+		document.getElementById("program").innerHTML += "<img class='program' src='img/program/program "+i+".jpg'></img>";
+	}
+}
+
+var slideIndex = 0;
+function carousel() {
+	var i;
+    var x = document.getElementsByClassName("slideshow");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel, 5000); // Change image every 5 seconds
+}
 
 function myFunction() {
     var x = document.getElementById("menu");
@@ -157,7 +202,6 @@ function showSchedule(y) {
 		x.className = "catSchedule";
 	}
 }
-
 
 /*function createTableCat(tableData) {
   var table = document.createElement('table');

@@ -44,15 +44,67 @@ header{
 	background-color:white;
 }
 
-article{
+/*article{
 	margin-top:9.5em;
-}
+}*/
+#spacer{height:9.5em;width:100%;}
 #fadeIn{
-	background:url(../img/VFlogo.png) center center no-repeat;
-	background-color:black;
+	background-color:#000;
+	color:white;
+	font-size:2em;
+	text-align:center;
 	width:100vw;
 	height:100vh;
-
+}
+#errorMSG{
+	color:white;
+	position:absolute;
+	text-align:center;
+	top:1em;
+	padding:2em;
+}
+#splashlogo{
+	background:url(../img/VFlogo.png) center center no-repeat;
+	width:100%;
+	height:100%;
+	margin:auto auto auto auto;
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 4000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 4000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }
 #menu{
 	display:block;
@@ -104,12 +156,48 @@ article{
 }
 
 #shows{
-	background-color:#c73476;
 	padding:1em 1em 2em 1em;
 	text-align:center;
 	background-color:rgba(199, 52, 118, 0.95);
 }
 #shows a{color:white;}
+
+#today{
+	background-color:rgba(199, 52, 118, 0.95);
+	padding:1em;
+}
+
+#todayShed{
+	padding:0;
+	margin:0;
+	width:100%;
+}
+#todayShed :nth-child(even){background-color:rgba(199, 52, 118, 0.95);}
+
+#program{width:100vw; height:auto;}
+
+#homeAdd1{width:100%;}
+#addImg1{height:20em;background-color:pink;}
+#addTitle1{background-color:rgba(255, 255, 255, 0.9);padding:1em 0 1em 0;text-align:center;color:black;font-weight:bold;}
+#addSynop1{background-color:rgba(255, 255, 255, 0.9); color:black; padding:0 1em 1em 1em;}
+#homeAdd2{width:100%;}
+#addImg2{height:20em;background-color:pink;}
+#addTitle2{background-color:rgba(255, 255, 255, 0.9);padding:1em 0 1em 0;text-align:center;color:black;font-weight:bold;}
+#addSynop2{background-color:rgba(255, 255, 255, 0.9); color:black; padding:0 1em 1em 1em;}
+
+.program{width:100vw;}
+
+.selectLink{
+	background-color:pink;
+	text-align:center;
+}
+.insideIMG{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	height:100%;
+	min-width:100%;
+}
 
 .hide {
   visibility: hidden;
@@ -126,20 +214,27 @@ article{
 .venueSchedule{
 	width:100%;
 	text-align:center;
-	background-color:#474a59;
 	color:white;
+	border-spacing:1px;
 }
 .venueSchedule a{
 	color:white;
 }
 .venueSchedule td {
 	padding:1em 0 1em 0;
+	background-color:rgba(30, 131, 194, 0.9);
 }
-.venueSchedule tr:nth-child(even){background-color: #c73476;}
-.venueSchedule tr:nth-child(odd){background-color: #1e83c2;}
 
 .menu a:not(:first-child) {
 	display: none;
+	font-size:0.9em;
+}
+
+.main{
+	display:none;
+}
+.main.show{
+	display:block;
 }
 
 .catBtn{
@@ -196,7 +291,7 @@ article{
 .venueImg{
 	height:20em;
 	width:100%;
-	text-align:center;
+	margin:0 auto 0 auto;
 	overflow:hidden;
 }
 
@@ -204,6 +299,7 @@ article{
 	background-color:white;
 	color:#c73476;
 	font-weight:bold;
+	margin:auto;
 	text-align:center;
 	font-size:1.2em;
 }
@@ -215,10 +311,9 @@ article{
 	width:100%;
 	padding:1em 0 1em 0;
 	background-color:rgba(30, 131, 194, 0.9);
+	color:white;
 	margin:auto;
 	font-weight:bold;
-
-
 }
 .catLink a{color:white;}
 
@@ -245,12 +340,9 @@ article{
 	width:100%;
 	text-align:center;
 	margin:auto;
-	font-weight:bold;
 	color:white;
 }
 .schedule a{color:white;}
-.schedule :nth-child(even){background-color: #1e83c2; padding:1.5em;}
-.schedule :nth-child(odd){background-color: #c73476; padding:1.5em;}
 
 .showImg{
 	height:20em;
