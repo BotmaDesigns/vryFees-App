@@ -99,6 +99,7 @@ function nameShows(showType)
 
                 for (i=0;i<serverData.length;i++){
 					if(serverData[i].Division == showType){
+						document.getElementById("shows").setAttribute("class", showType);
 						document.getElementById("shows").innerHTML += "</br><a href='show.html?showNum="+i+"'>" + serverData[i].Name +"</a></br>";
 					}
                 }

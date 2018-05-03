@@ -31,7 +31,7 @@ body {
     padding:0px;
     width:100%;
 	background:url(../img/background.jpg) center center no-repeat;
-	background-size:auto 100%;
+	background-size:cover;
 	background-attachment: fixed;
 }
 
@@ -158,10 +158,7 @@ header{
 #shows{
 	padding:1em 1em 2em 1em;
 	text-align:center;
-	background-color:rgba(199, 52, 118, 0.95);
 }
-#shows a{color:white;}
-
 #today{
 	background-color:rgba(199, 52, 118, 0.95);
 	padding:1em;
@@ -184,6 +181,10 @@ header{
 #addImg2{height:20em;background-color:pink;}
 #addTitle2{background-color:rgba(255, 255, 255, 0.9);padding:1em 0 1em 0;text-align:center;color:black;font-weight:bold;}
 #addSynop2{background-color:rgba(255, 255, 255, 0.9); color:black; padding:0 1em 1em 1em;}
+
+.vrynge{background-color:rgba(219, 180, 40 ,0.95);} .vrynge a{color:black;}
+.main{background-color:rgba(199, 52, 118, 0.95);} .main a{color:white;}
+.lit{background-color:rgba(199, 52, 118, 0.95);} .lit a{color:white;}
 
 .program{width:100vw;}
 

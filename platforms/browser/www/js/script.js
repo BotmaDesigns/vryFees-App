@@ -99,6 +99,7 @@ function nameShows(showType)
 
                 for (i=0;i<serverData.length;i++){
 					if(serverData[i].Division == showType){
+						document.getElementById("shows").setAttribute("class", showType);
 						document.getElementById("shows").innerHTML += "</br><a href='show.html?showNum="+i+"'>" + serverData[i].Name +"</a></br>";
 					}
                 }
@@ -167,8 +168,8 @@ function populateInfo(showNum){
 }
 
 function printProgram(){
-	for(i=1;i<=11;i++){
-		document.getElementById("program").innerHTML += "<img class='program' src='img/program/program "+i+".jpg'></img>";
+	for(i=1;i<=46;i++){
+		document.getElementById("program").innerHTML += "<img class='program' src='img/program/program"+i+".jpg'></img>";
 	}
 }
 
