@@ -310,7 +310,9 @@ header{
 .catLink{
 	text-align:center;
 	width:100%;
-	padding:1em 0 1em 0;
+	/*padding:1em 0 1em 0;*/
+	line-height:9.5vh;
+	vertical-align:center;
 	background-color:rgba(30, 131, 194, 0.9);
 	color:white;
 	margin:auto;

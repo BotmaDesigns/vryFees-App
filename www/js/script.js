@@ -100,7 +100,7 @@ function nameShows(showType)
                 for (i=0;i<serverData.length;i++){
 					if(serverData[i].Division == showType){
 						document.getElementById("shows").setAttribute("class", showType);
-						document.getElementById("shows").innerHTML += "</br><a href='show.html?showNum="+i+"'>" + serverData[i].Name +"</a></br>";
+						document.getElementById("shows").innerHTML += "</br><a href='show.html?showNum="+i+"'>" + serverData[i].Name +"</a></br></br>";
 					}
                 }
 }
@@ -153,10 +153,10 @@ function populateVenueInfo(venueNum){
 
 function populateInfo(showNum){
 	
-		document.getElementById("showImg").innerHTML = "<img src='img/shows/" + serverData[showNum].Name + ".jpg' style='min-width:100%; height:100%;'></img>";
-		document.getElementById("buyTicket").innerHTML = "<a href='"+serverData[showNum].Computicket + "'>Buy tickets now on CompuTicket.com</a>";
+		document.getElementById("showImg").innerHTML = "<div style='width:100%; height:100%; background:url(../www/img/shows/" + serverData[showNum].Authors + ".jpg) center center no-repeat; background-size:cover;'></div>";
+		document.getElementById("buyTicket").innerHTML = (serverData[showNum].Computicket='undefined'?'Tickets sold at the venue':"<a href='"+serverData[showNum].Computicket + "'>Buy tickets now on CompuTicket.com</a>") /*"<a href='"+serverData[showNum].Computicket + "'>Buy tickets now on CompuTicket.com</a>"*/;
 		document.getElementById("title").innerHTML = serverData[showNum].Name;
-		document.getElementById("showDesc").innerHTML = "<span class='bold'><p>Price: R " + serverData[showNum].Price + "</p>" + "Genre:</span> " + serverData[showNum].AfrGenres + " / " + serverData[showNum].Genres + "<p>" + serverData[showNum].AfrSynopses + "</p>" + "<p>" + serverData[showNum].Synopses + /*"</p><p><span class='bold'>Author:</span> " + serverData[showNum].Authors +*/ "</p>" + "<span class='bold'>Featuring:</span> ";
+		document.getElementById("showDesc").innerHTML = "<span class='bold'><p>Price: R " + serverData[showNum].Price + "</p>" + "Category :</span> " + serverData[showNum].Categories + "<p>" + serverData[showNum].AfrSynopses + "</p>" + "<p>" + serverData[showNum].Synopses + /*"</p><p><span class='bold'>Author:</span> " + serverData[showNum].Authors +*/ "</p>" + "<span class='bold'>Featuring:</span> ";
 			for (j=0;j<serverData[showNum].Actors.length;j++){
 					document.getElementById("showDesc").innerHTML += serverData[showNum].Actors[j].Name + ", ";
                 }
