@@ -171,9 +171,15 @@ function populateInfo(showNum){
 }
 
 function printProgram(){
-	for(i=1;i<=46;i++){
-		document.getElementById("program").innerHTML += "<img class='program' src='img/program/program"+i+".jpg'></img>";
-	}
+	var todayDate = new Date();
+                for (i=0;i<serverData.length;i++){
+					for (j=0;j<serverData[i].Schedules.length;j++){
+						var date = new Date(serverData[i].Schedules[j].StartTime);
+						if(date.toDateString() == todayDate.toDateString()){
+							document.getElementById("todayShed").innerHTML += "<tr><td><a href='show.html?showNum=" + i + "'>" + serverData[i].Name + "</a></td><td><a href='venue.html?venueNum=" + serverData[i].Schedules[j].Venue.Name + "'>" + serverData[i].Schedules[j].Venue.Name + "</a></td><td>" + date.getUTCHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + "</td></tr>"
+						};                
+					}
+                }
 }
 
 var slideIndex = 0;
