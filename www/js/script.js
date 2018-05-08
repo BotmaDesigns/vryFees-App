@@ -73,12 +73,12 @@ function showAdd(){
 	var showNum2 = Math.floor((Math.random() * 50) + 1);
 	
 	document.getElementById("homeAdd1").innerHTML = "<a href='show.html?showNum="+showNum+"'><div id='addImg1'></div><div id='addTitle1'></div><div id='addSynop1'></div></a>";
-	document.getElementById("addImg1").innerHTML = "<img src='img/shows/" + serverData[showNum].Name + ".jpg' style='min-width:100%; height:100%;'></img>";
+	document.getElementById("addImg1").innerHTML = "<img class='insideIMG' src='img/shows/" + serverData[showNum].Authors + ".jpg'></img>";
 	document.getElementById("addTitle1").innerHTML = serverData[showNum].Name;
 	document.getElementById("addSynop1").innerHTML = serverData[showNum].Synopses;
 				
 	document.getElementById("homeAdd2").innerHTML = "<a href='show.html?showNum="+showNum2+"'><div id='addImg2'></div><div id='addTitle2'></div><div id='addSynop2'></div></a>";
-	document.getElementById("addImg2").innerHTML = "<img src='img/shows/" + serverData[showNum2].Name + ".jpg' style='min-width:100%; height:100%;'></img>";
+	document.getElementById("addImg2").innerHTML = "<img class='insideIMG' src='img/shows/" + serverData[showNum2].Authors + ".jpg'></img>";
 	document.getElementById("addTitle2").innerHTML = serverData[showNum2].Name;
 	document.getElementById("addSynop2").innerHTML = serverData[showNum2].Synopses;
 			
@@ -115,8 +115,8 @@ function getToday(){
 					for (j=0;j<serverData[i].Schedules.length;j++){
 						var date = new Date(serverData[i].Schedules[j].StartTime);
 						if(date.toDateString() == todayDate.toDateString()){
-							document.getElementById("todayShed").innerHTML += "<tr><td><a href='show.html?showNum=" + i + "'>" + serverData[i].Name + "</a></td><td><a href='venue.html?venueNum=" + serverData[i].Schedules[j].Venue.Name + "'>" + serverData[i].Schedules[j].Venue.Name + "</a></td><td>" + date.getUTCHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + "</td></tr>"
-						};                
+							document.getElementById("todayShed").innerHTML += "<tr><td><a href='show.html?showNum=" + i + "'>" + serverData[i].Name + "</a></td><td><a href='venue.html?venueNum=" + serverData[i].Schedules[j].Venue.Name + "'>" + serverData[i].Schedules[j].Venue.Name + "</a></td><td>" + date.getUTCHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + "</td></tr>";
+						}               
 					}
                 }
 }
@@ -155,7 +155,7 @@ function populateVenueInfo(venueNum){
 
 function populateInfo(showNum){
 	
-		document.getElementById("showImg").innerHTML = "<img class='insideIMG' src='img/shows/" + serverData[showNum].Name + ".jpg'></img>";
+		document.getElementById("showImg").innerHTML = "<img class='insideIMG' src='img/shows/" + serverData[showNum].Authors + ".jpg'></img>";
 		document.getElementById("buyTicket").innerHTML = (serverData[showNum].Computicket='undefined'?'Tickets sold at the venue':"<a href='"+serverData[showNum].Computicket + "'>Buy tickets now on CompuTicket.com</a>") /*"<a href='"+serverData[showNum].Computicket + "'>Buy tickets now on CompuTicket.com</a>"*/;
 		document.getElementById("title").innerHTML = serverData[showNum].Name;
 		if(serverData[showNum].Price=="0"){pricePrint = 'Gratis / Free';}else{pricePrint = 'Price: R ' + serverData[showNum].Price;}
@@ -170,17 +170,6 @@ function populateInfo(showNum){
 
 }
 
-function printProgram(){
-	var todayDate = new Date();
-                for (i=0;i<serverData.length;i++){
-					for (j=0;j<serverData[i].Schedules.length;j++){
-						var date = new Date(serverData[i].Schedules[j].StartTime);
-						if(date.toDateString() == todayDate.toDateString()){
-							document.getElementById("todayShed").innerHTML += "<tr><td><a href='show.html?showNum=" + i + "'>" + serverData[i].Name + "</a></td><td><a href='venue.html?venueNum=" + serverData[i].Schedules[j].Venue.Name + "'>" + serverData[i].Schedules[j].Venue.Name + "</a></td><td>" + date.getUTCHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + "</td></tr>"
-						};                
-					}
-                }
-}
 
 var slideIndex = 0;
 function carousel() {
