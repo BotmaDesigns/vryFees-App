@@ -87,6 +87,7 @@ function showAdd(){
 
 function getShows(festType)
 {
+	document.getElementById("article").setAttribute("class", festType);
 	for (i=0;i<serverData.length;i++){
 			if(serverData[i].Division == festType){
 					document.getElementById(serverData[i].Categories).innerHTML += "</br>" + "<a href='show.html?showNum="+i+"'>" + serverData[i].Name +"</a>" + "</br>";
@@ -99,7 +100,8 @@ function nameShows(showType)
 
                 for (i=0;i<serverData.length;i++){
 					if(serverData[i].Division == showType){
-						document.getElementById("shows").setAttribute("class", showType);
+						/*document.getElementById("shows").setAttribute("class", showType);*/
+						document.getElementById("article").setAttribute("class", showType);
 						document.getElementById("shows").innerHTML += "</br><a href='show.html?showNum="+i+"'>" + serverData[i].Name +"</a></br></br>";
 					}
                 }
@@ -153,10 +155,11 @@ function populateVenueInfo(venueNum){
 
 function populateInfo(showNum){
 	
-		document.getElementById("showImg").innerHTML = "<div style='width:100%; height:100%; background:url(../www/img/shows/" + serverData[showNum].Authors + ".jpg) center center no-repeat; background-size:cover;'></div>";
+		document.getElementById("showImg").innerHTML = "<img class='insideIMG' src='img/shows/" + serverData[showNum].Name + ".jpg'></img>";
 		document.getElementById("buyTicket").innerHTML = (serverData[showNum].Computicket='undefined'?'Tickets sold at the venue':"<a href='"+serverData[showNum].Computicket + "'>Buy tickets now on CompuTicket.com</a>") /*"<a href='"+serverData[showNum].Computicket + "'>Buy tickets now on CompuTicket.com</a>"*/;
 		document.getElementById("title").innerHTML = serverData[showNum].Name;
-		document.getElementById("showDesc").innerHTML = "<span class='bold'><p>Price: R " + serverData[showNum].Price + "</p>" + "Category :</span> " + serverData[showNum].Categories + "<p>" + serverData[showNum].AfrSynopses + "</p>" + "<p>" + serverData[showNum].Synopses + /*"</p><p><span class='bold'>Author:</span> " + serverData[showNum].Authors +*/ "</p>" + "<span class='bold'>Featuring:</span> ";
+		if(serverData[showNum].Price=="0"){pricePrint = 'Gratis / Free';}else{pricePrint = 'Price: R ' + serverData[showNum].Price;}
+		document.getElementById("showDesc").innerHTML = "<span class='bold'><p>" + pricePrint + "</p>" + "Category :</span> " + serverData[showNum].Categories + "<p>" + serverData[showNum].AfrSynopses + "</p>" + "<p>" + serverData[showNum].Synopses + /*"</p><p><span class='bold'>Author:</span> " + serverData[showNum].Authors +*/ "</p>" + "<span class='bold'>Featuring:</span> ";
 			for (j=0;j<serverData[showNum].Actors.length;j++){
 					document.getElementById("showDesc").innerHTML += serverData[showNum].Actors[j].Name + ", ";
                 }
@@ -201,6 +204,22 @@ function showSchedule(y) {
 		x.className += " show";
 	} else {
 		x.className = "catSchedule";
+	}
+}
+
+function populateStallInfo(stallNum){
+	document.getElementById("showImg").innerHTML = stallNum;
+	document.getElementById("title").innerHTML = serverData[showNum].Name;
+	document.getElementById("showDesc").innerHTML = "<p>" + serverData[showNum].AfrSynopses + "</p>" + "<p>" + serverData[showNum].Synopses;
+}
+
+function nameStalls(showType)
+{
+	for (i=0;i<serverData.length;i++){
+		if(serverData[i].Division == showType){
+			document.getElementById("article").setAttribute("class", showType);
+			document.getElementById("shows").innerHTML += "</br><a href='stall.html?stallNum="+i+"'>" + serverData[i].Name +"</a></br></br>";
+		}
 	}
 }
 

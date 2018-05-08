@@ -50,15 +50,15 @@
 			<div id="menu" class="menu">
 				<a href="javascript:void(0);" onclick="myFunction()" class="menuBtn">&#9776;</br></a>
 				<a href="home.html">Home</a>
-				<a href="program.html">Full Program</a>
-				<a href="main.html" class="active">Hoof / Main Program</a>	
-				<a href="lit.html">Literatuur / Literature</a>	
+				<a href="main.html" class="active">Shows</a>	
+				<a href="stalls.html">Stalls</a>		
+				<!--<a href="lit.html" class="active">Literatuur / Literature</a>	
 				<a href="vrynge.html">Vrynge</a>
 				<!--<a href="shows.html">All Shows / Artists</a>-->
 				<a href="venues.html">Venues</a>
 				<a href="schedule.html">Today's Schedule</a>
 				<a href="map.html">Map</a>
-				<a href="sponsors.html">Sponsors / Borge</a>
+				<a href="sponsors.html">Sponsors</a>
 	
 				<div id="titleBar">
 					<div id="logo"></div>
@@ -75,56 +75,18 @@
 		
 	</header>
 	
-	<article>
+	<article id="article">
 	<div id="spacer"></div>
 			
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('Kids theater')" class="catBtn">Kinderteater / Kids theater</a></div>	
-			<div id="Kids theater" class="catSchedule"></div>
-				
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('Age unlimited')" class="catBtn">Ouderdom onbeperk / Age unlimited</a></div>	
-			<div id="Age unlimited" class="catSchedule"></div>
-				
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('Drama')" class="catBtn">Drama</a></div>	
-			<div id="Drama" class="catSchedule"></div>
-				
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('Comedy')" class="catBtn">Komedie / Comedy</a></div>	
-			<div id="Comedy" class="catSchedule"></div>
-				
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('Borderless')" class="catBtn">Grensloos / Borderless</a></div>	
-			<div id="Borderless" class="catSchedule"></div>
-				
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('Dance')" class="catBtn">Dans / Dance</a></div>	
-			<div id="Dance" class="catSchedule"></div>
-				
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('Music theater')" class="catBtn">Musiek teater / Music theater</a></div>	
-			<div id="Music theater" class="catSchedule"></div>
-				
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('Music - Classical')" class="catBtn">Musiek - Klassiek / Music - Classical</a></div>	
-			<div id="Music - Classical" class="catSchedule"></div>
-				
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('Music - Contemporary')" class="catBtn">Musiek - Kontemporêr / Music - Contemporary</a></div>	
-			<div id="Music - Contemporary" class="catSchedule"></div>
-				
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('Aasvoël Club')" class="catBtn">Aasvoël Club</a></div>	
-			<div id="Aasvoël Club" class="catSchedule"></div>
-				
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('Mouthful')" class="catBtn">Mondvol / Mouthful</a></div>	
-			<div id="Mouthful" class="catSchedule"></div>
-				
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('Live Art')" class="catBtn">Live Art</a></div>	
-			<div id="Live Art" class="catSchedule"></div>
-				
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('PACE')" class="catBtn">PACE</a></div>	
-			<div id="PACE" class="catSchedule"></div>
-				
-			<div class="catLink"><a href="javascript:void(0);" onclick="showSchedule('PAP')" class="catBtn">PAP</a></div>	
-			<div id="PAP" class="catSchedule"></div>
-						
+			<div id="shows"></div>
+			
 	</article>
 		
-	<script>
-		getShows("main");
+	<script>	
+		nameShows("mondvol");
 	</script>
+						
+	</article>
 
 </body>
 

@@ -87,6 +87,7 @@ function showAdd(){
 
 function getShows(festType)
 {
+	document.getElementById("article").setAttribute("class", festType);
 	for (i=0;i<serverData.length;i++){
 			if(serverData[i].Division == festType){
 					document.getElementById(serverData[i].Categories).innerHTML += "</br>" + "<a href='show.html?showNum="+i+"'>" + serverData[i].Name +"</a>" + "</br>";
@@ -99,7 +100,8 @@ function nameShows(showType)
 
                 for (i=0;i<serverData.length;i++){
 					if(serverData[i].Division == showType){
-						document.getElementById("shows").setAttribute("class", showType);
+						/*document.getElementById("shows").setAttribute("class", showType);*/
+						document.getElementById("article").setAttribute("class", showType);
 						document.getElementById("shows").innerHTML += "</br><a href='show.html?showNum="+i+"'>" + serverData[i].Name +"</a></br></br>";
 					}
                 }
@@ -202,6 +204,22 @@ function showSchedule(y) {
 		x.className += " show";
 	} else {
 		x.className = "catSchedule";
+	}
+}
+
+function populateStallInfo(stallNum){
+	document.getElementById("showImg").innerHTML = stallNum;
+	document.getElementById("title").innerHTML = serverData[showNum].Name;
+	document.getElementById("showDesc").innerHTML = "<p>" + serverData[showNum].AfrSynopses + "</p>" + "<p>" + serverData[showNum].Synopses;
+}
+
+function nameStalls(showType)
+{
+	for (i=0;i<serverData.length;i++){
+		if(serverData[i].Division == showType){
+			document.getElementById("article").setAttribute("class", showType);
+			document.getElementById("shows").innerHTML += "</br><a href='stall.html?stallNum="+i+"'>" + serverData[i].Name +"</a></br></br>";
+		}
 	}
 }
 
