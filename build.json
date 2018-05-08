@@ -1,0 +1,11 @@
+{
+  "android": {
+    "release": {
+      "keystore":"D:\Documents\GitHub\vryFees-App\vryfees key.keystore",
+      "storePassword":"Magictg1",
+      "alias":"vryFEES",
+      "password":"Magictg1",
+      "keystoreType":""
+    }
+  }
+}
