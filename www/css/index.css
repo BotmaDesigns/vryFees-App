@@ -184,12 +184,12 @@ article{
 
 #homeAdd1{width:100%;}
 #addImg1{height:20em;background-color:pink;}
-#addTitle1{background-color:rgba(255, 255, 255, 0.9);padding:1em 0 1em 0;text-align:center;color:black;font-weight:bold;}
-#addSynop1{background-color:rgba(255, 255, 255, 0.9); color:black; padding:0 1em 1em 1em;}
+#addTitle1{padding:1em 0 1em 0;text-align:center;color:black;font-weight:bold;}
+#addSynop1{color:black; padding:0 1em 1em 1em;}
 #homeAdd2{width:100%;}
 #addImg2{height:20em;background-color:pink;}
-#addTitle2{background-color:rgba(255, 255, 255, 0.9);padding:1em 0 1em 0;text-align:center;color:black;font-weight:bold;}
-#addSynop2{background-color:rgba(255, 255, 255, 0.9); color:black; padding:0 1em 1em 1em;}
+#addTitle2{padding:1em 0 1em 0;text-align:center;color:black;font-weight:bold;}
+#addSynop2{color:black; padding:0 1em 1em 1em;}
 
 .vrynge{background-color:rgba(253, 185, 19 ,0.95);} .vrynge a{color:black;}
 .main{background-color:rgba(199, 52, 118, 0.95);} .main a{color:white;}
@@ -202,6 +202,7 @@ article{
 .art{background-color:rgba(237,18,97, 0.9);}.art a{color:white;}
 .mondvol{background-color:rgba(60,64,81, 0.9);}.mondvol a{color:white;}
 .stall{background-color:rgba(255,255,255, 0.9);}.stall a{color:black;}
+.home{background-color:rgba(255,255,255,0.9);}
 
 .program{width:100vw;}
 

@@ -82,7 +82,8 @@ function showAdd(){
 	document.getElementById("addTitle2").innerHTML = serverData[showNum2].Name;
 	document.getElementById("addSynop2").innerHTML = serverData[showNum2].Synopses;
 			
-
+	document.getElementById("article").setAttribute("class", "home");
+	
 }
 
 function getShows(festType)
@@ -110,6 +111,11 @@ function nameShows(showType)
 function getToday(){
 	
 	var todayDate = new Date();
+	var startDate = new Date(2018, 06, 08, 0, 0, 0, 0);
+
+	
+	if (todayDate<startDate){document.getElementById("todayShed").innerHTML = "<tr><td>The Free State Arts Festival starts on " + (startDate.toDateString()) + "</td></tr>";}
+	
 	document.getElementById("today").innerHTML = "<span class='bold'>" + todayDate.toDateString() + "</span>";
                 for (i=0;i<serverData.length;i++){
 					for (j=0;j<serverData[i].Schedules.length;j++){
@@ -154,12 +160,15 @@ function populateVenueInfo(venueNum){
 
 
 function populateInfo(showNum){
-	
+	var compT = true;
+	if(serverData[showNum].Price=="0"){pricePrint = 'Gratis / Free'; compT = false}else{pricePrint = 'Price: R ' + serverData[showNum].Price;}
+	if(serverData[showNum].Computicket==""){ticketSale = 'Tickets sold at the venue';}else{ticketSale = "<a href='"+serverData[showNum].Computicket + "'>Buy tickets now on CompuTicket.com</a>"}
 		document.getElementById("showImg").innerHTML = "<img class='insideIMG' src='img/shows/" + serverData[showNum].Authors + ".jpg'></img>";
-		document.getElementById("buyTicket").innerHTML = (serverData[showNum].Computicket='undefined'?'Tickets sold at the venue':"<a href='"+serverData[showNum].Computicket + "'>Buy tickets now on CompuTicket.com</a>") /*"<a href='"+serverData[showNum].Computicket + "'>Buy tickets now on CompuTicket.com</a>"*/;
+		document.getElementById("buyTicket").innerHTML = ticketSale;
 		document.getElementById("title").innerHTML = serverData[showNum].Name;
-		if(serverData[showNum].Price=="0"){pricePrint = 'Gratis / Free';}else{pricePrint = 'Price: R ' + serverData[showNum].Price;}
 		document.getElementById("showDesc").innerHTML = "<span class='bold'><p>" + pricePrint + "</p>" + "Category :</span> " + serverData[showNum].Categories + "<p>" + serverData[showNum].AfrSynopses + "</p>" + "<p>" + serverData[showNum].Synopses + /*"</p><p><span class='bold'>Author:</span> " + serverData[showNum].Authors +*/ "</p>" + "<span class='bold'>Featuring:</span> ";
+		if(compT==false){document.getElementById("buyTicket").innerHTML = "Tickets not needed";}
+			
 			for (j=0;j<serverData[showNum].Actors.length;j++){
 					document.getElementById("showDesc").innerHTML += serverData[showNum].Actors[j].Name + ", ";
                 }
