@@ -66,7 +66,7 @@
 					<div id="logoWrapper">
 						<span id="vrystaat">vrystaat</span>
 						</br>
-						<span id="subText">Kunstefees &#8226; Arts Festival</span>
+						<span id="subText">Kunstefees &#8226; Arts Festival &#8226; Tsa-Botjhaba</span>
 					</div>
 				</div>
 			</div>
@@ -83,15 +83,18 @@
 	</article>
 		
 	<script>	
-		nameShows("teater");
-		nameShows("art");
-		nameShows("lit");
-		nameShows("film");
-		nameShows("public");
-		nameShows("music");
-		nameShows("pap");
-		nameShows("vrynge");
-		nameShows("mondvol");
+		window.onload = nameShows("teater");
+		window.onload = nameShows("art");
+		window.onload = nameShows("lit");
+		window.onload = nameShows("film");
+		window.onload = nameShows("public");
+		window.onload = nameShows("music");
+		window.onload = nameShows("pap");
+		window.onload = nameShows("vrynge");
+		window.onload = nameShows("mondvol");
+		
+		document.getElementById("article").setAttribute("class", "art");
 	</script>
+</body>
 
 </html>

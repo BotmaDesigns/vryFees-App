@@ -42,6 +42,7 @@ header{
 	top:0;
 	width:100%;
 	background-color:white;
+	z-index:101;
 }
 
 article{
@@ -52,6 +53,12 @@ article{
 #fadeIn{
 	background-color:#000;
 	color:white;
+	font-size:2em;
+	text-align:center;
+	width:100vw;
+	height:100vh;
+}
+#waitSign{
 	font-size:2em;
 	text-align:center;
 	width:100vw;
@@ -183,12 +190,12 @@ article{
 #program{width:100vw; height:auto;}
 
 #homeAdd1{width:100%;}
-#addImg1{height:20em;background-color:pink;}
-#addTitle1{padding:1em 0 1em 0;text-align:center;color:black;font-weight:bold;}
+#addImg1{height:22em;background-color:pink;}
+#addTitle1{padding:1em 0 1em 0;text-align:center;color:white;font-weight:bold;}
 #addSynop1{color:black; padding:0 1em 1em 1em;}
 #homeAdd2{width:100%;}
-#addImg2{height:20em;background-color:pink;}
-#addTitle2{padding:1em 0 1em 0;text-align:center;color:black;font-weight:bold;}
+#addImg2{height:22em;background-color:pink;}
+#addTitle2{padding:1em 0 1em 0;text-align:center;color:white;font-weight:bold;}
 #addSynop2{color:black; padding:0 1em 1em 1em;}
 
 .vrynge{background-color:rgba(253, 185, 19 ,0.95);} .vrynge a{color:black;}
@@ -197,12 +204,12 @@ article{
 .pap{background-color:rgba(188, 194, 6, 0.95);} .pap a{color:black;}
 .teater{background-color:rgba(46,121,176, 0.95);} .teater a{color:white;}
 .music{background-color:rgba(225,213,0, 0.9);} .music a{color:black;}
-.borderless{background-color:rgba(188,194,6, 0.95);}.borderless a{color:black;}
-.film{background-color:rgba(138,0,90, 0.95);}.film a{color:white;}
-.art{background-color:rgba(237,18,97, 0.9);}.art a{color:white;}
-.mondvol{background-color:rgba(60,64,81, 0.9);}.mondvol a{color:white;}
-.stall{background-color:rgba(255,255,255, 0.9);}.stall a{color:black;}
-.home{background-color:rgba(255,255,255,0.9);}
+.borderless{background-color:rgba(188,194,6, 0.95);} .borderless a{color:black;}
+.film{background-color:rgba(138,0,90, 0.95);} .film a{color:white;}
+.art{background-color:rgba(237,18,97, 0.9); color:white;} .art a{color:white;}
+.mondvol{background-color:rgba(60,64,81, 0.9);} .mondvol a{color:white;}
+.stall{background-color:rgba(255,255,255, 0.9);} .stall a{color:black;}
+.home{background-color:rgba(237,18,97, 0.9); color:white;} .home a{color:white;}
 
 .program{width:100vw;}
 

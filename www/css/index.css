@@ -42,6 +42,7 @@ header{
 	top:0;
 	width:100%;
 	background-color:white;
+	z-index:101;
 }
 
 article{
@@ -52,6 +53,12 @@ article{
 #fadeIn{
 	background-color:#000;
 	color:white;
+	font-size:2em;
+	text-align:center;
+	width:100vw;
+	height:100vh;
+}
+#waitSign{
 	font-size:2em;
 	text-align:center;
 	width:100vw;

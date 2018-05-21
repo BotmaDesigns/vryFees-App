@@ -69,8 +69,8 @@ function restartMsg(msg){
 }
 
 function showAdd(){
-	var showNum = Math.floor((Math.random() * 50) + 1);
-	var showNum2 = Math.floor((Math.random() * 50) + 1);
+	var showNum = Math.floor((Math.random() * serverData.length) + 1);
+	var showNum2 = Math.floor((Math.random() * serverData.length) + 1);
 	
 	document.getElementById("homeAdd1").innerHTML = "<a href='show.html?showNum="+showNum+"'><div id='addImg1'></div><div id='addTitle1'></div><div id='addSynop1'></div></a>";
 	document.getElementById("addImg1").innerHTML = "<img class='insideIMG' src='img/shows/" + serverData[showNum].Authors + ".jpg'></img>";
@@ -82,8 +82,7 @@ function showAdd(){
 	document.getElementById("addTitle2").innerHTML = serverData[showNum2].Name;
 	document.getElementById("addSynop2").innerHTML = serverData[showNum2].Synopses;
 			
-	document.getElementById("article").setAttribute("class", "home");
-	
+	document.getElementById("article").setAttribute("class", "home");	
 }
 
 function getShows(festType)
@@ -212,19 +211,38 @@ function showSchedule(y) {
 }
 
 function populateStallInfo(stallNum){
-	document.getElementById("showImg").innerHTML = stallNum;
-	document.getElementById("title").innerHTML = serverData[showNum].Name;
-	document.getElementById("showDesc").innerHTML = "<p>" + serverData[showNum].AfrSynopses + "</p>" + "<p>" + serverData[showNum].Synopses;
+	document.getElementById("showImg").innerHTML = "<img class='insideIMG' src='img/stalls/" + serverData[stallNum].Authors + ".jpg'></img>";
+	document.getElementById("title").innerHTML = serverData[stallNum].Name;
+	document.getElementById("showDesc").innerHTML = "<p><span class='bold'>Stalll Location: </span>" + serverData[stallNum].AfrSynopses + "</p>" + "<p><span class='bold'>Products: </span>" + serverData[stallNum].Synopses;
 }
 
-function nameStalls(showType)
+function getStalls(festType)
 {
+	//document.getElementById("article").setAttribute("class", festType);
 	for (i=0;i<serverData.length;i++){
-		if(serverData[i].Division == showType){
-			document.getElementById("article").setAttribute("class", showType);
-			document.getElementById("shows").innerHTML += "</br><a href='stall.html?stallNum="+i+"'>" + serverData[i].Name +"</a></br></br>";
-		}
-	}
+			if(serverData[i].Division == festType){
+					document.getElementById(serverData[i].Categories).innerHTML += "</br>" + "<a href='stall.html?stallNum="+i+"'>" + serverData[i].Name +"</a>" + "</br>";
+			}
+                }
+}
+
+function startSwiper(){
+	var swiper = new Swiper('.swiper-container', {
+      spaceBetween: 10,
+      centeredSlides: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
 }
 
 /*function createTableCat(tableData) {

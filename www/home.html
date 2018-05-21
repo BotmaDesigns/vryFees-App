@@ -40,6 +40,8 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
 	<script src="js/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+	<script src="js/swiper.min.js"></script>
     <title>vryFEES</title>
 </head>
 
@@ -80,9 +82,16 @@
 
 		<div class="catLink">Today's Highlights</div>
 		
+		
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+		  <div id="homeAdd1" class="swiper-slide"></div>
+		  <div id="homeAdd2" class="swiper-slide"></div>
+		</div>
+  </div>
 			
-			<div id="homeAdd1" class="slideshow"></div>
-			<div id="homeAdd2" class="slideshow"></div>
+			<!--<div id="homeAdd1" class="slideshow"></div>
+			<div id="homeAdd2" class="slideshow"></div>-->
 		<div id="homeColor">
 		</div>
 	</article>
@@ -90,7 +99,8 @@
 </body>
 	<script>
 		showAdd();
-		carousel();
+		startSwiper();
+		//carousel();
 	</script>
 
 </html>
