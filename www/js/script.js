@@ -245,26 +245,43 @@ function startSwiper(){
     });
 }
 
-/*function createTableCat(tableData) {
-  var table = document.createElement('table');
-  var tableBody = document.createElement('tbody');
-  table.setAttribute("id", "comedy");
-  table.className="catSchedule";
-
-  tableData.forEach(function(rowData) {
-    var row = document.createElement('tr');
-
-    rowData.forEach(function(cellData) {
-      var cell = document.createElement('td');
-      cell.appendChild(document.createTextNode(cellData));
-      row.appendChild(cell);
-    });
-
-    tableBody.appendChild(row);
-  });
-
-  table.appendChild(tableBody);
-  document.body.appendChild(table);
+function Draw(){
+  var img = document.getElementById("stallMap");
+  var cnvs = document.getElementById("myCanvas");
+  
+  cnvs.style.position = "absolute";
+  cnvs.style.left = img.offsetLeft + "px";
+  cnvs.style.top = img.offsetTop+ + "px";
+  
+  var topP = serverData[stallNum].Actors[0].Name;
+  var leftP = serverData[stallNum].Actors[0].Character;
+  
+  var ctx = cnvs.getContext("2d");
+  ctx.beginPath();
+  ctx.arc(10, 100, 5, 0, 2 * Math.PI, false);
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = '#ff0000';
+  ctx.stroke();
 }
 
-createTable([["row 1, cell 1", "row 1, cell 2"], ["row 2, cell 1", "row 2, cell 2"]]);*/
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+    } else {
+        document.getElementById("userPosition").innerHTML = "Your location is not available at this stage.";
+    }
+}
+function showPosition(position) {
+    document.getElementById("userPosition").innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+	var youLeft = (Math.abs(26.191111-position.coords.longitude)*59200);
+	var youTop = (Math.abs(Math.abs(-29.110888)-Math.abs(position.coords.latitude)))/3.15*1000000;
+	
+	document.getElementById("userPosition").innerHTML += "</br>pixels left/right: " + youLeft + "</br>pixels up/down: " + youTop;
+	if(youLeft < 350 && youLeft >= 0 && youTop < 300 && youTop >= 0){
+		document.getElementById("meMap").style.display = "block";
+		document.getElementById("meMap").style.left = (youLeft+30) + "px";		
+		document.getElementById("meMap").style.top = (document.getElementById("stallMap").offsetTop + youTop) + "px";
+	}	
+}
+

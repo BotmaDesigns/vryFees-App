@@ -87,6 +87,11 @@
 		<div class="showDesc" id="showDesc">
 		</div>
 		</table>
+		<img src="img/maps/stallsMap.jpg" id="stallMap"></img>
+		<img id="meMap" src="img/maps/human.png"></img>
+		<canvas id='myCanvas'></canvas>
+		<p id="userPosition"></p>
+		
 	
 	</article>
 	<script>
@@ -95,6 +100,8 @@
 		var stallNum = url.searchParams.get("stallNum");
 		
 		populateStallInfo(stallNum);
+		Draw(stallNum);
+		getLocation();
 	</script>
 </body>
 
