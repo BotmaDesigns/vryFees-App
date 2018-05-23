@@ -253,12 +253,12 @@ function Draw(){
   cnvs.style.left = img.offsetLeft + "px";
   cnvs.style.top = img.offsetTop+ + "px";
   
-  var topP = serverData[stallNum].Actors[0].Name;
-  var leftP = serverData[stallNum].Actors[0].Character;
+  var leftP = serverData[stallNum].Actors[0].Name;
+  var topP = serverData[stallNum].Actors[0].Character;
   
   var ctx = cnvs.getContext("2d");
   ctx.beginPath();
-  ctx.arc(10, 100, 5, 0, 2 * Math.PI, false);
+  ctx.arc(216, 84, 5, 0, 2 * Math.PI, false);		//actor name  <--->,  Char name  ^
   ctx.lineWidth = 3;
   ctx.strokeStyle = '#ff0000';
   ctx.stroke();
