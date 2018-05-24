@@ -258,7 +258,7 @@ function Draw(){
   
   var ctx = cnvs.getContext("2d");
   ctx.beginPath();
-  ctx.arc(216, 84, 5, 0, 2 * Math.PI, false);		//actor name  <--->,  Char name  ^
+  ctx.arc(leftP, topP, 5, 0, 2 * Math.PI, false);		//actor name  <--->,  Char name  ^
   ctx.lineWidth = 3;
   ctx.strokeStyle = '#ff0000';
   ctx.stroke();
