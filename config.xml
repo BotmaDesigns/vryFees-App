@@ -4,7 +4,7 @@
     <description>
         The APP of the Vrystaat Arts Festival
     </description>
-    <author email="BotmaJ@hotmail.com" href="http://botmaDesigns.com">
+    <author email="BotmaJ@hotmail.com" href="http://BotmaDesigns.com">
         BotmaDesigns.com
     </author>
     <content src="index.html" />
@@ -20,6 +20,7 @@
     <plugin name="cordova-plugin-console" source="npm" spec="~1.0.3" />
     <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.1" />
     <plugin name="cordova-plugin-whitelist" source="npm" />
+	<plugin name="cordova-plugin-geolocation" source="npm" />
 	
 	<icon src="icon.png" />
    
@@ -36,5 +37,6 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+		<allow-intent href="geo:*" />
     </platform>
 </widget>
