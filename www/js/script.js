@@ -161,7 +161,7 @@ function populateVenueInfo(venueNum){
 function populateInfo(showNum){
 	var compT = true;
 	if(serverData[showNum].Price=="0"){pricePrint = 'Gratis / Free'; compT = false}else{pricePrint = 'Price: R ' + serverData[showNum].Price;}
-	if(serverData[showNum].Computicket==""){ticketSale = 'Tickets sold at the venue';}else{ticketSale = "<a href='"+serverData[showNum].Computicket + "'>Buy tickets now on CompuTicket.com</a>"}
+	if(serverData[showNum].Computicket==""){ticketSale = 'Tickets sold at the venue';}else{ticketSale = "<a href='"+serverData[showNum].Computicket + "'>Buy tickets here</a>"}
 		document.getElementById("showImg").innerHTML = "<img class='insideIMG' src='img/shows/" + serverData[showNum].Authors + ".jpg'></img>";
 		document.getElementById("buyTicket").innerHTML = ticketSale;
 		document.getElementById("title").innerHTML = serverData[showNum].Name;

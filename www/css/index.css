@@ -292,6 +292,10 @@ article{
 	width:100%;
 }
 
+.white{
+	color:white;
+}
+
 .showMenu{
 	display:block;
 	text-align:left;
