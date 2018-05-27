@@ -272,12 +272,16 @@ function getLocation() {
     }
 }
 function showPosition(position) {
-    document.getElementById("userPosition").innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude; 
+  
 	var youLeft = (Math.abs(26.191111-position.coords.longitude)*59200);
 	var youTop = (Math.abs(Math.abs(-29.110888)-Math.abs(position.coords.latitude)))/3.15*1000000;
-	
+
+	/*
+	document.getElementById("userPosition").innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
 	document.getElementById("userPosition").innerHTML += "</br>pixels left/right: " + youLeft + "</br>pixels up/down: " + youTop;
+	*/
+	
 	if(youLeft < 350 && youLeft >= 0 && youTop < 300 && youTop >= 0){
 		document.getElementById("meMap").style.display = "block";
 		document.getElementById("meMap").style.left = (youLeft+30) + "px";		
