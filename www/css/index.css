@@ -276,6 +276,8 @@ article{
 	background-color:rgba(30, 131, 194, 0.9);
 }
 
+.backBtn{font-size:4em; position:fixed; top:-0.1em; left:0.5em;}
+
 .menu a:not(:first-child) {
 	display: none;
 	font-size:0.9em;
