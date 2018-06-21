@@ -237,7 +237,7 @@ function showSchedule(y) {
 }
 
 function populateStallInfo(stallNum){
-	document.getElementById("showImg").innerHTML = "<img class='insideIMG' src='img/stalls/" + stallsData[stallNum].ImageName + ".jpg'></img>";
+	document.getElementById("showImg").innerHTML = "<img class='insideIMG' src='img/stalls/" + stallsData[stallNum].ImageName + ".jpg' onerror=\"this.src='img/error.jpg';\"alt=''></img>";
 	document.getElementById("title").innerHTML = stallsData[stallNum].Name;
 	document.getElementById("showDesc").innerHTML = "<p><span class='bold'>Stall Location: </span>" + stallsData[stallNum].StallNumber + "</p>" 
 													+ "<p><span class='bold'>Owner: </span>" + stallsData[stallNum].OwnerName + "</p>"
