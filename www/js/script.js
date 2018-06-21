@@ -290,7 +290,7 @@ function Draw(){
   
   var ctx = cnvs.getContext("2d");
   ctx.beginPath();
-  ctx.arc(leftP, topP, 5, 0, 2 * Math.PI, false);		//actor name  <--->,  Char name  ^
+  ctx.arc(leftP, topP, 5, 0, 2 * Math.PI, false);
   ctx.lineWidth = 3;
   ctx.strokeStyle = '#ff0000';
   ctx.stroke();
@@ -303,20 +303,26 @@ function getLocation() {
         document.getElementById("userPosition").innerHTML = "Your location is not available at this stage.";
     }
 }
+
 function showPosition(position) {
   
-	var youLeft = (Math.abs(26.191111-position.coords.longitude)*59200);
-	var youTop = (Math.abs(Math.abs(-29.110888)-Math.abs(position.coords.latitude)))/3.15*1000000;
+	var youLeft = (Math.abs(26.191074-position.coords.longitude)*100000/1.5165714);
+	var youTop = (Math.abs(Math.abs(-29.113522)-Math.abs(position.coords.latitude)))*100000/1.8;
 
+	
 	/*
 	document.getElementById("userPosition").innerHTML = "Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude; 
 	document.getElementById("userPosition").innerHTML += "</br>pixels left/right: " + youLeft + "</br>pixels up/down: " + youTop;
+	
+	
+	var youLeft = (Math.abs(26.191074-26.186307)*100000/1.5165714);
+	var youTop = (Math.abs(Math.abs(-29.113522)-Math.abs(-29.113525)))*100000/1.8;
 	*/
 	
 	if(youLeft < 350 && youLeft >= 0 && youTop < 300 && youTop >= 0){
 		document.getElementById("meMap").style.display = "block";
-		document.getElementById("meMap").style.left = (youLeft+30) + "px";		
+		document.getElementById("meMap").style.left = youLeft + "px";		
 		document.getElementById("meMap").style.top = (document.getElementById("stallMap").offsetTop + youTop) + "px";
 	}	
 }
