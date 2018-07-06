@@ -189,10 +189,10 @@ article{
 
 #sponsor{
 	width:100vw;
-	height:100vh;
-	background:url(../img/sponsors.jpg) top center no-repeat;
+	height:auto;
+/*	background:url(../img/sponsors.jpg) center center no-repeat;
 	background-size:contain;
-	background-attachment: fixed;
+	background-attachment: fixed;*/
 }
 
 #shows{
@@ -409,7 +409,7 @@ article{
 .schedule a{color:white;}
 
 .showImg{
-	height:17em;
+	height:19em;
 	width:100%;
 	margin-bottom:1em;
 	overflow:hidden;
