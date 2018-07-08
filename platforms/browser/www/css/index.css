@@ -188,11 +188,9 @@ article{
 }
 
 #sponsor{
+	padding-top:0.5em;
 	width:100vw;
 	height:auto;
-/*	background:url(../img/sponsors.jpg) center center no-repeat;
-	background-size:contain;
-	background-attachment: fixed;*/
 }
 
 #shows{
@@ -277,6 +275,12 @@ article{
 }
 
 .backBtn{font-size:4em; position:fixed; top:-0.1em; left:0.5em;}
+
+.addIMG{
+	height:19em;
+	width:100vw;
+	
+}
 
 .menu a:not(:first-child) {
 	display: none;
